@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<title>EMRINA | Masar Mekke - Sistem Güncellemeleri</title>
+<style>
+:root{
+  --navy:#102631;
+  --navy-2:#173642;
+  --ink:#1f2d33;
+  --muted:#68757a;
+  --gold:#c59a53;
+  --gold-soft:#eadcc2;
+  --ivory:#f6f3ed;
+  --paper:#fffdf9;
+  --line:#e4ddd1;
+  --green:#356c5c;
+  --shadow:0 18px 50px rgba(16,38,49,.09);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--ivory)}
+body{margin:0;background:
+  radial-gradient(circle at 12% 0%,rgba(197,154,83,.12),transparent 28rem),
+  linear-gradient(180deg,#f9f7f2 0%,#f3efe7 100%);
+  color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.7}
+a{color:inherit}
+.shell{max-width:1220px;margin:auto;padding:0 22px 70px}
+.topbar{position:sticky;top:0;z-index:30;margin:0 -22px;padding:10px 22px;background:rgba(246,243,237,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(228,221,209,.85)}
+.topbar-inner{max-width:1220px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.04em;color:var(--navy)}
+.brand-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(145deg,var(--navy),#244b59);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);position:relative}
+.brand-mark:after{content:"";position:absolute;inset:8px;border:1px solid rgba(197,154,83,.9);border-radius:50%}
+.brand small{display:block;font-weight:600;color:var(--muted);font-size:10px;letter-spacing:.11em}
+.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chip,.action-btn{border:1px solid var(--line);background:rgba(255,255,255,.78);border-radius:999px;padding:7px 11px;font-size:12px;text-decoration:none;cursor:pointer;color:var(--navy);font-weight:700}
+.action-btn:hover,.chip:hover{border-color:#cdbd9d;background:#fff}
+.hero{margin-top:34px;border-radius:30px;background:
+ linear-gradient(135deg,rgba(255,255,255,.07),transparent 36%),
+ linear-gradient(135deg,var(--navy) 0%,#173845 62%,#214b59 100%);
+ color:white;padding:46px 48px 42px;position:relative;overflow:hidden;box-shadow:0 28px 70px rgba(16,38,49,.22)}
+.hero:before{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(197,154,83,.22);border-radius:50%;right:-190px;top:-190px;box-shadow:0 0 0 55px rgba(197,154,83,.04),0 0 0 110px rgba(197,154,83,.025)}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:34px;align-items:end}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;text-transform:uppercase;letter-spacing:.13em;color:#e7d0a5;font-weight:800}
+.kicker:before{content:"";width:26px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.06;margin:12px 0 14px;letter-spacing:-.02em}
+.hero p{max-width:760px;margin:0;color:#d6e0e4;font-size:16px}
+.hero-stats{display:grid;grid-template-columns:repeat(2,110px);gap:10px}
+.stat{border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.075);border-radius:18px;padding:14px;text-align:center}
+.stat strong{display:block;font-size:27px;color:#fff}.stat span{display:block;font-size:10px;color:#c8d6da;margin-top:2px}
+.section-intro{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:48px 2px 18px}
+.section-intro h2{font-size:28px;margin:0;color:var(--navy);letter-spacing:-.015em}.section-intro p{margin:4px 0 0;color:var(--muted);max-width:720px}
+.section-tag{font-size:11px;font-weight:800;letter-spacing:.09em;color:#8e6d35;text-transform:uppercase}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.update-card{background:rgba(255,253,249,.88);border:1px solid var(--line);border-radius:22px;padding:0;overflow:hidden;box-shadow:0 10px 32px rgba(16,38,49,.055);transition:.18s ease}
+.update-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#d8c8a9}
+.card-head{display:grid;grid-template-columns:72px 1fr;align-items:stretch;border-bottom:1px solid var(--line);background:linear-gradient(90deg,#fbf9f4,#f8f4eb)}
+.card-number{display:grid;place-items:center;background:var(--navy);color:#fff;font-size:23px;font-weight:900;min-height:66px}
+.card-title{display:flex;align-items:center;padding:14px 18px;font-weight:800;color:var(--navy);font-size:17px}
+.card-body{padding:17px 20px 19px}
+ul.clean{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ul.clean li{position:relative;padding-inline-start:22px;color:#2d3c41;font-size:14px}
+ul.clean li:before{content:"";position:absolute;inset-inline-start:2px;top:.73em;width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(197,154,83,.11)}
+.featured{grid-column:1/-1}
+.featured .card-body{columns:2;column-gap:42px}
+.featured li{break-inside:avoid}
+.divider{margin:62px 0 0;position:relative;height:1px;background:linear-gradient(90deg,transparent,#cfbf9d 18%,#cfbf9d 82%,transparent)}
+.divider span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--ivory);border:1px solid #d8ccb6;color:#8b6c38;padding:7px 14px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.08em}
+.ar{direction:rtl;font-family:Tahoma,"Segoe UI",Arial,sans-serif}
+.ar .section-intro{text-align:right}
+.ar .section-tag{text-transform:none;letter-spacing:0}
+.ar .card-head{grid-template-columns:1fr 72px;background:linear-gradient(270deg,#fbf9f4,#f8f4eb)}
+.ar .card-number{grid-column:2}.ar .card-title{grid-column:1;grid-row:1;text-align:right;justify-content:flex-start}
+.ar ul.clean li{padding-inline-start:22px;padding-inline-end:22px}
+.ar ul.clean li:before{inset-inline-start:auto;inset-inline-end:2px}
+.ar .hero-ar{margin-top:18px;border:1px solid #dfd6c7;border-radius:22px;background:rgba(255,255,255,.62);padding:18px 20px;color:var(--navy)}
+.ar .hero-ar strong{font-size:18px}.ar .hero-ar p{color:var(--muted);margin:4px 0 0;font-size:14px}
+.reference{margin-top:30px;background:#efe9dc;border:1px solid #ded3c1;border-radius:18px;padding:16px 18px;display:flex;justify-content:space-between;gap:15px;align-items:center;color:#5d5549;font-size:13px}
+.reference code{font-family:Consolas,"Courier New",monospace;background:#fff;border:1px solid #ddd3c2;border-radius:8px;padding:5px 8px;color:var(--navy);word-break:break-all}
+.footer{margin-top:28px;text-align:center;color:#7a817f;font-size:11px}
+.developer-credit{margin-top:22px;padding:22px 24px;border:1px solid #ddd3c2;border-radius:18px;background:linear-gradient(135deg,#fbf8f1 0%,#f1eadc 100%);display:flex;align-items:center;justify-content:space-between;gap:18px;box-shadow:0 12px 28px rgba(19,39,51,.05)}
+.developer-credit .credit-label{font-size:11px;color:#86785f;margin-bottom:6px}
+.developer-credit .credit-name{font-size:20px;font-weight:900;letter-spacing:.8px;color:var(--navy)}
+.developer-credit .credit-role{font-size:11px;font-weight:800;color:#b68a3a;margin-top:4px;letter-spacing:1.4px}
+.developer-credit .credit-mark{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--navy);color:#fff;font-size:18px;font-weight:900;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+@media(max-width:620px){.developer-credit{align-items:flex-start}.developer-credit .credit-name{font-size:17px}}
+@media(max-width:860px){.hero{padding:34px 26px}.hero-grid{grid-template-columns:1fr}.hero-stats{grid-template-columns:repeat(2,minmax(0,1fr));max-width:300px}.cards{grid-template-columns:1fr}.featured{grid-column:auto}.featured .card-body{columns:1}.section-intro{align-items:flex-start;flex-direction:column}.reference{align-items:flex-start;flex-direction:column}.topbar-inner{align-items:flex-start}}
+@media(max-width:560px){.shell{padding:0 14px 45px}.topbar{margin:0 -14px;padding:9px 14px}.brand small{display:none}.chip{display:none}.hero{border-radius:22px;padding:28px 20px}.hero h1{font-size:34px}.card-head{grid-template-columns:58px 1fr}.ar .card-head{grid-template-columns:1fr 58px}.card-number{font-size:19px}.card-title{font-size:15px;padding:12px 14px}.card-body{padding:15px}.actions .action-btn{padding:7px 9px}}
+@media print{.topbar{display:none}.shell{max-width:none;padding:0}.hero{box-shadow:none;break-after:avoid}.update-card{box-shadow:none;break-inside:avoid}.divider{break-before:page}.actions{display:none}body{background:white}.reference{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="brand-mark"></span><span>EMRINA<small>MASAR MAKKAH</small></span></div>
+      <div class="actions">
+        <a class="chip" href="#turkce">Türkçe</a>
+        <a class="chip" href="#arabic">العربية</a>
+        <button class="action-btn" onclick="window.print()">Print / PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero" id="turkce">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">EMRINA · MASAR MAKKAH</div>
+        <h1>Masar Mekke Projesi<br>Sistem Güncellemeleri</h1>
+        <p>Aşağıdaki maddeler, EMRINA sistemi üzerinde tamamlanan ve onaylanan temel geliştirmeleri özetlemektedir. İçerik; müşteri yönetimi, satış ve rezervasyon süreçleri, finans, yetkilendirme, ekler ve denetim altyapısını kapsamaktadır.</p>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>11</strong><span>Ana Güncelleme</span></div>
+        <div class="stat"><strong>TR + AR</strong><span>İki Dilli</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-intro">
+    <div><div class="section-tag">Güncelleme Özeti</div><h2>Onaylanan Sistem Geliştirmeleri</h2><p>Her başlık, sistemde uygulanan işlevsel değişiklikleri ve operasyonel kontrol noktalarını özetler.</p></div>
+  </div>
+
+  <section class="cards tr">
+    <article class="update-card"><div class="card-head"><div class="card-number">1</div><div class="card-title">Müşteri Yönetiminin Geliştirilmesi</div></div><div class="card-body"><ul class="clean">
+      <li>Her müşteri için kimlik kartı veya pasaport kopyası yükleme imkânı eklendi.</li>
+      <li>Müşteriler sayfasına geçmeye gerek kalmadan rezervasyon veya satış ekranından doğrudan yeni müşteri eklenebiliyor.</li>
+      <li>Yeni müşteri otomatik olarak müşteri veritabanına ekleniyor ve ilgili işlem içinde hemen kullanılabilir hâle geliyor.</li>
+      <li>Kimlik/pasaport numarası veya cep telefonu numarası üzerinden mükerrer müşteri kaydını önleyen kontrol eklendi.</li>
+    </ul></div></article>
+
+    <article class="update-card"><div class="card-head"><div class="card-number">2</div><div class="card-title">Daire Detay Ekranının Geliştirilmesi</div></div><div class="card-body"><ul class="clean">
+      <li>Daire detayları içinde kule görseli yeniden gösteriliyor.</li>
+      <li>Seçilen dairenin bulunduğu kat kule üzerinde açık ve belirgin şekilde işaretleniyor.</li>
+      <li>Kule görünümü ile mimari kat planı birbiriyle ilişkilendirilerek dairenin ve bulunduğu katın konumu daha kolay anlaşılır hâle getirildi.</li>
+    </ul></div></article>
+
+    <article class="update-card featured"><div class="card-head"><div class="card-number">3</div><div class="card-title">Tahsilat Sisteminin Geliştirilmesi</div></div><div class="card-body"><ul class="clean">
+      <li>Tek bir tahsilat işlemi içinde birden fazla ödeme kaydedilebiliyor.</li>
+      <li>Her ödeme için ayrı ödeme yöntemi seçilebiliyor: Nakit, Banka Havalesi, POS, Çek veya Diğer.</li>
+      <li>Çekli ödemeler için çek numarası ve vade tarihi gibi özel alanlar eklendi.</li>
+      <li>Kaydedilmiş tahsilatların sonradan düzenlenebilmesi sağlandı.</li>
+      <li>Tahsilat düzenlemesi yapılırken değişiklik nedeninin girilmesi zorunlu hâle getirildi.</li>
+      <li>Değişiklik geçmişi; önceki değer, yeni değer, değişiklik zamanı, işlemi yapan kullanıcı ve değişiklik nedeni ile birlikte kaydediliyor.</li>
+      <li>Tahsilat tutarının sözleşmenin kalan bakiyesini aşmasını engelleyen kontrol mekanizması eklendi.</li>
+    </ul></div></article>
+
+    <article class="update-card"><div class="card-head"><div class="card-number">4</div><div class="card-title">Hesap Ekstrelerinin Geliştirilmesi</div></div><div class="card-body"><ul class="clean">
+      <li>Hesap ekstresi artık yalnızca müşteri bazında değil, doğrudan satış sözleşmesi veya rezervasyon sözleşmesi bazında takip ediliyor.</li>
+      <li>Ekstrede sözleşme veya rezervasyon değeri, kapora, tahsilatlar, kalan bakiye, işlem hareketleri ve ilgili ekler gösteriliyor.</li>
+      <li>Hesap ekstresi Finans sayfasından doğrudan açılabiliyor ve yazdırılabiliyor.</li>
+    </ul></div></article>
+
+    <article class="update-card"><div class="card-head"><div class="card-number">5</div><div class="card-title">Rezervasyon ve Satış Süreçlerinin Geliştirilmesi</div></div><div class="card-body"><ul class="clean">
+      <li>Rezervasyon iptali ve satış iptali işlemleri eklendi.</li>
+      <li>İptal nedeni, iptal tarihi, işlemi gerçekleştiren kullanıcı ve ilgili ekler kayıt altında tutuluyor.</li>
+      <li>İptal edilen işlem sistemden silinmiyor; geçmiş kaydı korunuyor.</li>
+      <li>Rezervasyonun uzatılması veya yenilenmesi için yeni tarih ve uzatma nedeni kaydedilebiliyor.</li>
+      <li>İnceleme ve denetimi kolaylaştırmak amacıyla işlemin tüm geçmişi korunuyor.</li>
+    </ul></div></article>
+
+    <article class="update-card"><div class="card-head"><div class="card-number">6</div><div class="card-title">İmza Sisteminin Eklenmesi</div></div><div class="card-body"><ul class="clean">
+      <li>Sözleşmenin yazdırılıp fiziksel olarak imzalanması ve imzalı nüshanın sisteme yüklenmesi destekleniyor.</li>
+      <li>Sistem içinde elektronik imza süreci için ayrı bir akış eklendi.</li>
+      <li>İmzalar ve imzalı nüshalar ilgili rezervasyon veya satış sözleşmesine bağlanıyor.</li>
+      <li>Sistem; sunucu aşamasında OTP, e-posta bildirimi ve nihai elektronik imza hizmetleriyle entegre edilebilecek şekilde hazırlandı.</li>
+    </ul></div></article>
+
+    <article class="update-card featured"><div class="card-head"><div class="card-number">7</div><div class="card-title">Finans Sayfasının Geliştirilmesi</div></div><div class="card-body"><ul class="clean">
+      <li>Satışların ve rezervasyonların finansal durumunu daha açık göstermek için sayfa yeniden düzenlendi.</li>
+      <li>Temel göstergeler eklendi: Toplam sözleşmeli satışlar, toplam tahsilat, kalan tutarlar, gecikmiş tutarlar, bekleyen çekler, aktif rezervasyon sayısı ve satış sözleşmesi sayısı.</li>
+      <li>Görsel grafik ve göstergeler eklendi: Rezervasyon ve satış hareketleri, aylık tahsilatlar, ödeme yöntemlerinin dağılımı, daire durumları (müsait / rezerve / satıldı), süresi yaklaşan rezervasyonlar ve gecikmeli ödeme bulunan sözleşmeler.</li>
+    </ul></div></article>
+
+    <article class="update-card"><div class="card-head"><div class="card-number">8</div><div class="card-title">Kapsamlı Sistem Kontrol Panelinin Oluşturulması</div></div><div class="card-body"><ul class="clean">
+      <li>Giriş sonrasında erişilebilen küçük bir Kontrol Paneli simgesi (⚙️) eklendi.</li>
+      <li>Kontrol paneli; kullanıcı yönetimi, yetkiler, sistem ayarları, iptaller, ekler ve denetim kaydını içeriyor.</li>
+      <li>Bu alanın sistemin ana idari yönetim merkezi olması hedeflendi.</li>
+    </ul></div></article>
+
+    <article class="update-card featured"><div class="card-head"><div class="card-number">9</div><div class="card-title">Detaylı Kullanıcı Yetkilendirme Sisteminin Oluşturulması</div></div><div class="card-body"><ul class="clean">
+      <li>Ana hesap, sistemdeki tüm işlevler üzerinde tam yetkiye sahip olacak şekilde yapılandırıldı.</li>
+      <li>Çok sınırlı ve ayrıntılı yetkilere sahip kullanıcılar oluşturulabiliyor.</li>
+      <li>Her kullanıcı için her bir yetki ayrı ayrı etkinleştirilebiliyor veya kaldırılabiliyor.</li>
+      <li>Yetkiler; müşteriler, rezervasyonlar, rezervasyon uzatma, rezervasyon iptali, satışlar, fiyat değişiklikleri, ödeme planları, tahsilatlar, tahsilat düzenleme, çekler, sözleşmeler, ekler, imza, fiyatlandırma, raporlar, ayarlar ve kullanıcı yönetimi gibi alanları kapsıyor.</li>
+    </ul></div></article>
+
+    <article class="update-card"><div class="card-head"><div class="card-number">10</div><div class="card-title">İptaller ve Ekler İçin Özel Merkez</div></div><div class="card-body"><ul class="clean">
+      <li>İptal edilen tüm rezervasyon ve satışların merkezi olarak takip edilebileceği özel bir alan oluşturuldu.</li>
+      <li>İptal nedeni, tarih, kullanıcı, daire, müşteri ve ilgili ekler birlikte görüntülenebiliyor.</li>
+      <li>Müşteri dosyaları, sözleşmeler, rezervasyonlar, tahsilatlar ve imzalı nüshaların daha kolay görüntülenmesi için merkezi bir Ekler Merkezi oluşturuldu.</li>
+      <li>Görsellerin ve PDF dosyalarının daha kolay önizlenmesi destekleniyor.</li>
+    </ul></div></article>
+
+    <article class="update-card"><div class="card-head"><div class="card-number">11</div><div class="card-title">Denetim Kaydı - Audit Trail</div></div><div class="card-body"><ul class="clean">
+      <li>Sistemdeki önemli işlemler kayıt altına alınıyor: tahsilat oluşturma veya düzenleme, iptaller, rezervasyon uzatmaları, kullanıcı ve yetki değişiklikleri, eklerin açılması ve sistem ayarlarındaki değişiklikler.</li>
+      <li>Amaç, sunucu tabanlı nihai sürüme geçmeden önce kontrol, izlenebilirlik ve şeffaflık seviyesini yükseltmektir.</li>
+    </ul></div></article>
+  </section>
+
+  <div class="divider"><span>العربية</span></div>
+
+  <section class="ar" id="arabic">
+    <div class="hero-ar">
+      <strong>مشروع مسار مكة - تحديثات نظام EMRINA</strong>
+      <p>فيما يلي ملخص النقاط الأساسية التي تم تنفيذها واعتمادها ضمن النظام.</p>
+    </div>
+
+    <div class="section-intro">
+      <div><div class="section-tag">ملخص التحديثات</div><h2>التطويرات المعتمدة على النظام</h2><p>تم ترتيب النقاط بنفس محتوى النسخة المعتمدة، مع عرض عربي كامل من اليمين إلى اليسار.</p></div>
+    </div>
+
+    <div class="cards ar">
+      <article class="update-card"><div class="card-head"><div class="card-number">1</div><div class="card-title">تطوير إدارة العملاء</div></div><div class="card-body"><ul class="clean">
+        <li>إضافة إمكانية رفع صورة الهوية أو جواز السفر لكل عميل.</li>
+        <li>إمكانية إضافة عميل جديد مباشرة من شاشة الحجز أو البيع بدون الحاجة للانتقال إلى صفحة العملاء.</li>
+        <li>العميل الجديد يضاف تلقائيًا إلى قاعدة العملاء ويصبح متاحًا مباشرة داخل المعاملة.</li>
+        <li>إضافة فحص لمنع تكرار العميل باستخدام رقم الهوية/الجواز أو رقم الجوال.</li>
+      </ul></div></article>
+
+      <article class="update-card"><div class="card-head"><div class="card-number">2</div><div class="card-title">تطوير شاشة تفاصيل الوحدة</div></div><div class="card-body"><ul class="clean">
+        <li>إعادة عرض شكل البرج داخل تفاصيل الوحدة.</li>
+        <li>إظهار الدور المرتبط بالوحدة المختارة بشكل واضح ومميز.</li>
+        <li>ربط عرض البرج مع المخطط المعماري للوحدة لتسهيل معرفة موقع الوحدة والدور.</li>
+      </ul></div></article>
+
+      <article class="update-card featured"><div class="card-head"><div class="card-number">3</div><div class="card-title">تطوير نظام التحصيلات</div></div><div class="card-body"><ul class="clean">
+        <li>إمكانية تسجيل أكثر من دفعة ضمن عملية تحصيل واحدة.</li>
+        <li>كل دفعة يمكن أن يكون لها طريقة دفع مستقلة مثل: نقدي، تحويل بنكي، POS، شيك أو غيرها.</li>
+        <li>إضافة بيانات خاصة بالشيكات مثل رقم الشيك وتاريخ الاستحقاق.</li>
+        <li>إمكانية تعديل التحصيل بعد تسجيله.</li>
+        <li>إلزام المستخدم بإدخال سبب التعديل.</li>
+        <li>حفظ سجل كامل للتعديل يوضح القيمة قبل وبعد التعديل، وقت التعديل، المستخدم الذي قام به، وسبب التعديل.</li>
+        <li>إضافة حماية تمنع تسجيل تحصيل يتجاوز الرصيد المتبقي للعقد.</li>
+      </ul></div></article>
+
+      <article class="update-card"><div class="card-head"><div class="card-number">4</div><div class="card-title">تطوير كشوف الحساب</div></div><div class="card-body"><ul class="clean">
+        <li>أصبح كشف الحساب مرتبطًا بعقد البيع أو اتفاقية الحجز وليس بالعميل فقط.</li>
+        <li>يعرض قيمة العقد أو الحجز، العربون، التحصيلات، المتبقي، سجل الحركات والمرفقات.</li>
+        <li>إمكانية فتح وطباعة كشف الحساب مباشرة من صفحة المالية.</li>
+      </ul></div></article>
+
+      <article class="update-card"><div class="card-head"><div class="card-number">5</div><div class="card-title">تطوير الحجوزات والمبيعات</div></div><div class="card-body"><ul class="clean">
+        <li>إضافة إمكانية إلغاء الحجز وإلغاء البيع.</li>
+        <li>حفظ سبب الإلغاء، تاريخ الإلغاء، المستخدم الذي قام بالإلغاء وأي مرفقات مرتبطة.</li>
+        <li>الاحتفاظ بالمعاملة الملغاة في السجل وعدم حذفها من النظام.</li>
+        <li>إضافة إمكانية تمديد أو تجديد الحجز مع تسجيل التاريخ الجديد وسبب التمديد.</li>
+        <li>المحافظة على تاريخ كامل للمعاملة لتسهيل المراجعة والرقابة.</li>
+      </ul></div></article>
+
+      <article class="update-card"><div class="card-head"><div class="card-number">6</div><div class="card-title">إضافة نظام التوقيع</div></div><div class="card-body"><ul class="clean">
+        <li>دعم التوقيع الورقي من خلال طباعة العقد ثم رفع النسخة الموقعة.</li>
+        <li>إضافة مسار للتوقيع الإلكتروني داخل النظام.</li>
+        <li>ربط التوقيعات والنسخ الموقعة بالحجز أو عقد البيع.</li>
+        <li>تجهيز النظام لربطه لاحقًا بخدمات OTP والبريد الإلكتروني والتوقيع النهائي على السيرفر.</li>
+      </ul></div></article>
+
+      <article class="update-card featured"><div class="card-head"><div class="card-number">7</div><div class="card-title">تطوير صفحة المالية</div></div><div class="card-body"><ul class="clean">
+        <li>إعادة تنظيم الصفحة لعرض وضع المبيعات والحجوزات بشكل أوضح.</li>
+        <li>إضافة مؤشرات رئيسية مثل: إجمالي المبيعات المتعاقدة، إجمالي المحصل، المبالغ المتبقية، المبالغ المتأخرة، الشيكات المعلقة، عدد الحجوزات النشطة، وعدد عقود البيع.</li>
+        <li>إضافة رسوم ومؤشرات بصرية توضح: حركة الحجوزات والمبيعات، التحصيلات الشهرية، توزيع طرق الدفع، حالة الوحدات (متاح، محجوز، مباع)، الحجوزات القريبة من الانتهاء، والعقود التي تحتوي على تأخر في السداد.</li>
+      </ul></div></article>
+
+      <article class="update-card"><div class="card-head"><div class="card-number">8</div><div class="card-title">إنشاء لوحة تحكم شاملة للنظام</div></div><div class="card-body"><ul class="clean">
+        <li>إضافة أيقونة لوحة التحكم ⚙️ بعد تسجيل الدخول.</li>
+        <li>تشمل إدارة المستخدمين، الصلاحيات، إعدادات النظام، الإلغاءات، المرفقات وسجل التدقيق.</li>
+        <li>الهدف أن تكون هذه الصفحة هي المركز الإداري الكامل للنظام.</li>
+      </ul></div></article>
+
+      <article class="update-card featured"><div class="card-head"><div class="card-number">9</div><div class="card-title">إنشاء نظام صلاحيات تفصيلي للمستخدمين</div></div><div class="card-body"><ul class="clean">
+        <li>الحساب الرئيسي لديه صلاحية كاملة على جميع وظائف النظام.</li>
+        <li>يمكن إنشاء مستخدمين بصلاحيات محددة جدًا.</li>
+        <li>يمكن تفعيل أو إلغاء كل صلاحية بشكل مستقل لكل مستخدم.</li>
+        <li>تشمل الصلاحيات: العملاء، الحجوزات، تمديد الحجوزات، إلغاء الحجوزات، المبيعات، تعديل الأسعار، خطط السداد، التحصيلات، تعديل التحصيل، الشيكات، العقود، المرفقات، التوقيع، التسعير، التقارير، الإعدادات والمستخدمين.</li>
+      </ul></div></article>
+
+      <article class="update-card"><div class="card-head"><div class="card-number">10</div><div class="card-title">إضافة مركز خاص بالإلغاءات والمرفقات</div></div><div class="card-body"><ul class="clean">
+        <li>إنشاء مكان مركزي لمتابعة جميع الحجوزات والمبيعات الملغاة.</li>
+        <li>عرض سبب الإلغاء، التاريخ، المستخدم، الوحدة، العميل والمرفقات.</li>
+        <li>إنشاء مركز مرفقات لتسهيل استعراض ملفات العملاء والعقود والحجوزات والتحصيلات والنسخ الموقعة.</li>
+        <li>دعم معاينة الصور وملفات PDF بطريقة أكثر سهولة.</li>
+      </ul></div></article>
+
+      <article class="update-card"><div class="card-head"><div class="card-number">11</div><div class="card-title">إضافة سجل تدقيق Audit Trail</div></div><div class="card-body"><ul class="clean">
+        <li>تسجيل العمليات المهمة داخل النظام مثل: إنشاء أو تعديل التحصيلات، الإلغاءات، تمديد الحجوزات، تعديل المستخدمين والصلاحيات، فتح المرفقات، وتغييرات الإعدادات.</li>
+        <li>الهدف هو رفع مستوى الرقابة والشفافية قبل الانتقال إلى نسخة السيرفر.</li>
+      </ul></div></article>
+    </div>
+  </section>
+
+  <div class="reference ar"><strong>النسخة المرجعية المعتمدة</strong><code dir="ltr">EMRINA_Masar_Sales_Suite_ControlCenter_Permissions.html</code></div>
+
+  <div class="developer-credit ar">
+    <div>
+      <div class="credit-label">تم التطوير والتصميم بواسطة</div>
+      <div class="credit-name" dir="ltr">MALEK RAYYAN</div>
+      <div class="credit-role" dir="ltr">CFO</div>
+    </div>
+    <div class="credit-mark">MR</div>
+  </div>
+
+  <div class="footer">EMRINA · MASAR MAKKAH · System Update Summary</div>
+</div>
+</body>
+</html>
