@@ -3,248 +3,273 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EMRINA | Masar Makkah — System Update Dossier</title>
+<title>EMRINA | Release Calendar</title>
 <style>
-:root{--ink:#18211d;--paper:#f4f0e8;--ivory:#fbfaf6;--sage:#315b4a;--sage2:#527b68;--copper:#b46f45;--sand:#d8c7ad;--line:#d8d1c5;--muted:#78796f;--white:#fff;--shadow:0 20px 60px rgba(24,33,29,.10)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Segoe UI",Tahoma,Arial,sans-serif;-webkit-font-smoothing:antialiased}button{font:inherit}
-.site-shell{min-height:100vh;background:linear-gradient(90deg,rgba(49,91,74,.035) 1px,transparent 1px),linear-gradient(rgba(49,91,74,.035) 1px,transparent 1px),var(--paper);background-size:44px 44px}
-.topnav{position:sticky;top:0;z-index:20;background:rgba(244,240,232,.90);backdrop-filter:blur(18px);border-bottom:1px solid rgba(24,33,29,.12)}
-.navinner{max-width:1320px;margin:auto;height:76px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:14px;font-weight:900;letter-spacing:.14em}.brand-emblem{width:38px;height:38px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:11px;position:relative}.brand-emblem:after{content:"";position:absolute;inset:5px;border:1px solid var(--copper);border-radius:50%}.brand small{display:block;font-weight:600;color:var(--muted);font-size:9px;letter-spacing:.18em;margin-top:3px}
-.navtools{display:flex;align-items:center;gap:10px}.switch{display:flex;border:1px solid rgba(24,33,29,.16);background:rgba(255,255,255,.55);padding:4px;border-radius:999px}.switch button{border:0;background:transparent;padding:8px 13px;border-radius:999px;cursor:pointer;font-size:12px;font-weight:800;color:var(--muted)}.switch button.active{background:var(--ink);color:white;box-shadow:0 4px 14px rgba(24,33,29,.18)}.print-btn{border:1px solid rgba(24,33,29,.16);background:transparent;border-radius:999px;padding:10px 14px;cursor:pointer;font-weight:800;color:var(--ink)}
-.view{display:none}.view.active{display:block}
-.hero{max-width:1320px;margin:auto;padding:76px 28px 50px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(340px,.75fr);gap:52px;align-items:end}
-.hero-copy{padding-bottom:10px}.overline{font-size:11px;font-weight:900;letter-spacing:.22em;color:var(--copper);text-transform:uppercase;margin-bottom:24px}.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(54px,7vw,102px);line-height:.90;letter-spacing:-.05em;margin:0;max-width:920px}.hero h1 span{display:block;color:var(--sage)}.hero p{font-size:16px;line-height:1.85;color:#555c56;max-width:760px;margin:28px 0 0}
-.hero-board{background:var(--ink);color:white;border-radius:2px;padding:34px;min-height:380px;position:relative;overflow:hidden;box-shadow:var(--shadow)}.hero-board:before{content:"";position:absolute;width:260px;height:260px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-70px;top:-80px;box-shadow:0 0 0 42px rgba(255,255,255,.025),0 0 0 84px rgba(255,255,255,.018)}.hero-board .big{font-family:Georgia,serif;font-size:150px;line-height:.78;color:var(--sand);letter-spacing:-.08em}.hero-board .caption{margin-top:18px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#b8c3bd}.hero-board .rule{height:1px;background:rgba(255,255,255,.18);margin:28px 0}.hero-board .meta{display:grid;grid-template-columns:1fr 1fr;gap:20px}.hero-board .meta div{font-size:11px;color:#aeb8b2}.hero-board .meta b{display:block;color:white;font-size:14px;margin-top:6px}
-.domain-strip{max-width:1320px;margin:0 auto 66px;padding:0 28px}.domain-inner{border-top:1px solid rgba(24,33,29,.18);border-bottom:1px solid rgba(24,33,29,.18);display:grid;grid-template-columns:repeat(6,1fr)}.domain{padding:16px 12px;text-align:center;border-inline-end:1px solid rgba(24,33,29,.12);font-size:10px;font-weight:900;letter-spacing:.08em;color:#5e655f;text-transform:uppercase}.domain:last-child{border-inline-end:0}.domain b{display:block;color:var(--sage);font-family:Georgia,serif;font-size:22px;margin-bottom:3px}
-.timeline-wrap{max-width:1320px;margin:auto;padding:0 28px 72px;position:relative}.timeline-wrap:before{content:"";position:absolute;left:50%;top:10px;bottom:72px;width:1px;background:linear-gradient(var(--copper),rgba(49,91,74,.25))}.chapter{display:grid;grid-template-columns:1fr 92px 1fr;align-items:start;min-height:220px;position:relative}.chapter-index{grid-column:2;display:grid;place-items:start center;position:relative;padding-top:6px}.chapter-index:before{content:"";width:15px;height:15px;border-radius:50%;background:var(--paper);border:3px solid var(--copper);position:absolute;top:12px;z-index:2}.chapter-index span{margin-top:42px;writing-mode:vertical-rl;transform:rotate(180deg);font-family:Georgia,serif;color:#a79b8a;font-size:13px;letter-spacing:.18em}.chapter-card{background:rgba(251,250,246,.92);border:1px solid rgba(24,33,29,.12);padding:27px 30px 28px;box-shadow:0 10px 30px rgba(24,33,29,.045);position:relative}.chapter.left .chapter-card{grid-column:1;grid-row:1}.chapter.right .chapter-card{grid-column:3;grid-row:1}.chapter-card:after{content:"";position:absolute;top:20px;width:18px;height:18px;background:var(--ivory);border-top:1px solid rgba(24,33,29,.12);border-right:1px solid rgba(24,33,29,.12);transform:rotate(45deg)}.chapter.left .chapter-card:after{right:-10px}.chapter.right .chapter-card:after{left:-10px;transform:rotate(225deg)}.chapter-top{display:flex;align-items:center;gap:9px;margin-bottom:14px}.chapter-line{width:32px;height:2px;background:var(--copper)}.chapter-label{font-size:9px;font-weight:900;letter-spacing:.2em;color:var(--copper)}.chapter h3{font-family:Georgia,"Times New Roman",serif;font-size:27px;line-height:1.16;margin:0 0 18px;font-weight:500}.chapter ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}.chapter li{position:relative;padding-left:20px;font-size:13px;line-height:1.7;color:#4f5751}.chapter li:before{content:"";position:absolute;left:0;top:.72em;width:6px;height:6px;background:var(--sage);border-radius:50%}
-.ar{direction:rtl;text-align:right}.ar .chapter li{padding-left:0;padding-right:20px}.ar .chapter li:before{left:auto;right:0}.ar .chapter-top{flex-direction:row-reverse;justify-content:flex-end}.ar .hero h1{letter-spacing:-.025em}.ar .timeline-wrap:before{left:50%}
-.reference{max-width:1320px;margin:0 auto 64px;padding:0 28px}.reference-box{display:flex;align-items:center;justify-content:space-between;gap:20px;border:1px solid rgba(24,33,29,.14);padding:18px 22px;background:rgba(255,255,255,.38)}.reference-box span{font-size:11px;color:var(--muted);font-weight:800}.reference-box code{font-size:11px;color:var(--sage);font-weight:800;word-break:break-all}
-.signature-section{background:#14201b;color:white;padding:42px 28px 50px;position:relative;overflow:hidden}.signature-section:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 15%,rgba(180,111,69,.20),transparent 28%),radial-gradient(circle at 85% 75%,rgba(82,123,104,.22),transparent 32%)}.signature-panel{max-width:1320px;margin:auto;position:relative;z-index:1;display:grid;grid-template-columns:110px minmax(0,1fr) 360px;gap:34px;align-items:center;border-top:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16);padding:30px 0}.signature-seal{width:92px;height:92px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(216,199,173,.55);box-shadow:inset 0 0 0 8px rgba(216,199,173,.05);font-family:Georgia,serif;font-size:30px;color:var(--sand)}.signature-kicker{font-size:9px;letter-spacing:.24em;color:#aebdb5;font-weight:900}.signature-name{font-family:Georgia,serif;font-size:35px;letter-spacing:.02em;margin:8px 0 9px}.signature-line{height:1px;background:linear-gradient(90deg,var(--copper),transparent);max-width:440px}.signature-role{font-size:10px;letter-spacing:.20em;color:var(--sand);margin-top:10px;font-weight:900}.signature-meta{border-left:1px solid rgba(255,255,255,.16);padding-left:28px;display:grid;gap:14px}.sig-tag{display:inline-flex;width:max-content;border:1px solid rgba(216,199,173,.32);color:var(--sand);border-radius:999px;padding:6px 10px;font-size:9px;letter-spacing:.08em}.contact{display:grid;gap:10px}.contact-row{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center}.contact-row .ico{width:28px;height:28px;border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;border-radius:50%;color:var(--sand)}.contact-row small{display:block;color:#87978f;font-size:8px;text-transform:uppercase;letter-spacing:.18em}.contact-row strong{display:block;margin-top:2px;font-size:13px;letter-spacing:.02em}.signature-phone{font-size:16px!important;letter-spacing:.08em!important;color:#fff}.sig-foot{font-size:9px;line-height:1.7;color:#829088;letter-spacing:.08em}
-.footer{background:#101914;color:#79877f;text-align:center;padding:16px;font-size:9px;letter-spacing:.16em}
-@media(max-width:950px){.hero{grid-template-columns:1fr}.hero-board{min-height:auto}.domain-inner{grid-template-columns:repeat(3,1fr)}.timeline-wrap:before{left:36px}.chapter{grid-template-columns:72px 1fr;min-height:auto;margin-bottom:18px}.chapter-index{grid-column:1}.chapter.left .chapter-card,.chapter.right .chapter-card{grid-column:2;grid-row:1}.chapter-card:after{left:-10px!important;right:auto!important;transform:rotate(225deg)!important}.signature-panel{grid-template-columns:90px 1fr}.signature-meta{grid-column:1/-1;border-left:0;border-top:1px solid rgba(255,255,255,.16);padding:22px 0 0;grid-template-columns:1fr 1fr}.ar .timeline-wrap:before{left:auto;right:36px}.ar .chapter{grid-template-columns:1fr 72px}.ar .chapter-index{grid-column:2}.ar .chapter.left .chapter-card,.ar .chapter.right .chapter-card{grid-column:1}.ar .chapter-card:after{right:-10px!important;left:auto!important;transform:rotate(45deg)!important}}
-@media(max-width:620px){.navinner{padding:0 14px;height:68px}.brand small,.print-btn{display:none}.switch button{padding:7px 9px}.hero{padding:46px 16px 30px;gap:28px}.hero h1{font-size:48px}.hero-board .big{font-size:100px}.domain-strip,.timeline-wrap,.reference{padding-left:16px;padding-right:16px}.domain-inner{grid-template-columns:repeat(2,1fr)}.chapter-card{padding:22px 20px}.chapter h3{font-size:23px}.signature-section{padding:36px 18px}.signature-panel{grid-template-columns:68px 1fr;gap:18px}.signature-seal{width:64px;height:64px;font-size:22px}.signature-name{font-size:26px}.signature-meta{grid-template-columns:1fr}.reference-box{align-items:flex-start;flex-direction:column}}
-@media print{.topnav{display:none}body{background:white}.site-shell{background:white}.hero{padding-top:30px}.hero-board{box-shadow:none}.timeline-wrap:before{display:none}.chapter{display:block;min-height:0;margin-bottom:10px}.chapter-index{display:none}.chapter-card{break-inside:avoid;box-shadow:none}.chapter-card:after{display:none}.signature-section{background:#14201b!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+:root{
+  --ink:#17212b;
+  --muted:#73808a;
+  --paper:#ffffff;
+  --bg:#f4f1eb;
+  --line:#ddd8cf;
+  --navy:#13283a;
+  --navy2:#1d3f56;
+  --red:#b6463c;
+  --sand:#d6b37c;
+  --sage:#7d9b87;
+  --soft:#ece7de;
+  --shadow:0 22px 60px rgba(23,33,43,.11);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Segoe UI",Tahoma,Arial,sans-serif}
+button,input{font:inherit}
+.app{min-height:100vh}
+.header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+.header-inner{max-width:1480px;margin:auto;height:82px;padding:0 30px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:15px;direction:ltr;text-align:left}
+.logo{width:48px;height:48px;border-radius:13px;background:#163546;display:grid;place-items:center;position:relative;box-shadow:0 7px 18px rgba(19,40,58,.13)}
+.logo:after{content:"";width:23px;height:23px;border:1.5px solid #c69b43;border-radius:50%;display:block}
+.brand b{display:block;font-size:22px;line-height:1;font-weight:900;letter-spacing:.10em;color:#112b3b}
+.brand small{display:block;color:#7b8992;font-size:10px;margin-top:7px;letter-spacing:.17em;font-weight:700}
+.actions{display:flex;align-items:center;gap:9px}
+.langs{display:flex;border:1px solid var(--line);background:#faf8f3;border-radius:10px;padding:3px}
+.langs button{border:0;background:transparent;padding:7px 10px;border-radius:7px;cursor:pointer;color:#6f777d;font-size:11px;font-weight:800}
+.langs button.active{background:var(--navy);color:white}
+.print{border:1px solid var(--line);background:white;border-radius:9px;padding:9px 12px;cursor:pointer;font-size:10px;font-weight:850;color:var(--navy)}
+.main{max-width:1480px;margin:auto;padding:28px 30px 50px}
+.intro{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:18px;margin-bottom:18px;align-items:stretch}
+.intro-copy{background:linear-gradient(145deg,#fff 0%,#fbfaf7 100%);color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:20px 22px;position:relative;overflow:hidden;min-height:238px;box-shadow:0 10px 28px rgba(23,33,43,.045);display:flex;flex-direction:column;justify-content:space-between}
+.intro-copy:before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:linear-gradient(180deg,#c79a48,#b6463c)}
+.intro-copy:after{content:"23";position:absolute;right:18px;bottom:-26px;font-size:118px;line-height:1;font-weight:950;color:rgba(19,40,58,.032);letter-spacing:-.08em;pointer-events:none}
+.intro-topline{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:1}
+.kicker{font-size:8px;letter-spacing:.17em;color:#96723c;text-transform:uppercase;font-weight:900}
+.release-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid #ded7ca;background:#f6f2ea;border-radius:999px;padding:5px 8px;font-size:8px;font-weight:850;color:#43525b;white-space:nowrap}
+.release-badge:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(182,70,60,.09)}
+.intro-main{display:grid;grid-template-columns:54px minmax(0,1fr);gap:15px;align-items:start;margin:15px 0 12px;position:relative;z-index:1}
+.intro-number{font-size:34px;line-height:1;font-weight:950;color:#d8c6a3;letter-spacing:-.06em;border-right:1px solid #ded8ce;padding-right:12px}
+.intro h1{font-size:clamp(25px,2.6vw,37px);line-height:1.08;margin:0 0 8px;max-width:700px;letter-spacing:-.03em;color:#142b3b}
+.intro p{max-width:740px;color:#68767e;font-size:10.5px;line-height:1.68;margin:0}
+.hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;position:relative;z-index:1}
+.hero-stat{border-top:1px solid #ded8ce;background:transparent;padding:8px 3px 0}
+.hero-stat span{display:block;color:#899399;font-size:7px;text-transform:uppercase;letter-spacing:.07em}
+.hero-stat b{display:block;margin-top:3px;font-size:13px;color:#142b3b}
+.month-panel{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:17px 18px;box-shadow:0 10px 28px rgba(23,33,43,.045);min-height:238px}
+.month-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:8px}
+.month-head span{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.10em}
+.month-head b{font-size:18px}
+.weekdays,.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.weekdays div{text-align:center;font-size:7px;color:#98a0a5;padding:3px 0 4px;font-weight:800}
+.day{height:34px;border:1px solid #e5e0d7;border-radius:8px;background:#fbfaf7;display:grid;place-items:center;font-size:9px;color:#56616a;position:relative}
+.day.empty{border-color:transparent;background:transparent}
+.day.release{background:var(--red);color:white;border-color:var(--red);font-weight:900;cursor:pointer;box-shadow:0 8px 18px rgba(182,70,60,.22)}
+.day.release:after{content:"11";position:absolute;right:4px;top:3px;font-size:6px;color:#f7d8d4;background:rgba(255,255,255,.12);border-radius:999px;padding:1px 3px}
+.month-note{display:flex;align-items:center;gap:7px;margin-top:9px;font-size:8px;color:var(--muted)}
+.month-note i{width:8px;height:8px;border-radius:50%;background:var(--red)}
+.release-layout{display:grid;grid-template-columns:340px minmax(0,1fr);gap:20px;align-items:start}
+.release-index{position:sticky;top:94px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 12px 30px rgba(23,33,43,.05)}
+.release-index h3{margin:0;font-size:13px}
+.release-index p{font-size:9px;color:var(--muted);line-height:1.6;margin:7px 0 14px}
+.index-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.index-meta div{background:#f7f4ee;border-radius:10px;padding:9px}
+.index-meta span{display:block;font-size:7px;color:#8a9298;text-transform:uppercase;letter-spacing:.08em}
+.index-meta b{display:block;font-size:13px;margin-top:3px}
+.filter-list{display:grid;gap:6px}
+.filter-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid transparent;background:transparent;border-radius:10px;padding:9px 10px;cursor:pointer;text-align:left;color:#46525b}
+.filter-btn:hover{background:#f6f3ee}
+.filter-btn.active{background:var(--navy);color:white}
+.filter-btn .left{display:flex;align-items:center;gap:8px;font-size:9px;font-weight:800}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--sand)}
+.filter-btn.active .dot{background:#fff}
+.filter-btn small{font-size:8px;opacity:.7}
+.searchbox{margin-top:12px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;gap:7px;padding:0 10px;background:#fbfaf7}
+.searchbox input{width:100%;border:0;background:transparent;outline:0;padding:9px 0;font-size:9px}
+.refbox{margin-top:13px;border-top:1px dashed var(--line);padding-top:12px}
+.refbox span{display:block;font-size:7px;color:#929a9f;text-transform:uppercase;margin-bottom:5px}
+.refbox code{font-size:8px;word-break:break-word;color:#53616a}
+.release-sheet{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.release-cover{display:grid;grid-template-columns:170px minmax(0,1fr);border-bottom:1px solid var(--line)}
+.date-block{background:#f3eee4;padding:24px 22px;display:flex;flex-direction:column;justify-content:space-between;min-height:210px}
+.date-block .n{font-size:76px;line-height:.8;font-weight:950;color:var(--navy);letter-spacing:-.07em}
+.date-block .m{font-size:13px;font-weight:900;color:var(--red);margin-top:10px}
+.date-block .y{font-size:10px;color:var(--muted);margin-top:3px}
+.date-block .stamp{font-size:8px;color:#796f62;letter-spacing:.1em;text-transform:uppercase}
+.release-summary{padding:26px 30px}
+.release-summary .eyebrow{font-size:8px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.release-summary h2{margin:8px 0 10px;font-size:26px}
+.release-summary p{margin:0;color:var(--muted);line-height:1.75;font-size:11px;max-width:800px}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.legend span{border:1px solid var(--line);border-radius:999px;padding:6px 9px;font-size:8px;color:#56616a;background:#fbfaf7}
+.change-stream{padding:6px 30px 30px}
+.change{display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;padding:22px 0;border-bottom:1px solid #ece8e0}
+.change:last-child{border-bottom:0}
+.change-no{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#f5f1ea;border:1px solid #dfd8cd;color:var(--navy);font-size:11px;font-weight:950;position:relative}
+.change-no:after{content:"";position:absolute;top:42px;width:1px;height:30px;background:#e1dbd2}
+.change:last-child .change-no:after{display:none}
+.change-cat{font-size:8px;color:var(--red);text-transform:uppercase;letter-spacing:.13em;font-weight:900;margin-bottom:5px}
+.change h3{margin:0;font-size:16px}
+.change ul{margin:10px 0 0;padding:0;display:grid;gap:7px;list-style:none}
+.change li{position:relative;padding-left:16px;font-size:10px;line-height:1.65;color:#52606a}
+.change li:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sage);position:absolute;left:0;top:.67em}
+.change.hidden{display:none}
+.signature-wrap{max-width:1480px;margin:0 auto;padding:0 30px 45px}
+.signature{background:linear-gradient(135deg,#13283a,#1d3f56);color:white;border-radius:22px;padding:25px 28px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;box-shadow:0 22px 56px rgba(19,40,58,.22)}
+.seal{width:80px;height:80px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(214,179,124,.65);box-shadow:inset 0 0 0 6px rgba(214,179,124,.08);font-size:22px;font-weight:950;color:#e2c795}
+.sig-k{font-size:8px;color:#a9bdc7;letter-spacing:.19em;font-weight:900}
+.sig-name{font-size:25px;font-weight:950;letter-spacing:.06em;margin-top:7px}
+.sig-rule{width:68px;height:2px;background:var(--red);margin:10px 0}
+.sig-role{font-size:9px;color:#d3dde2;letter-spacing:.13em;font-weight:800}
+.sig-contact{min-width:255px;border-left:1px solid rgba(255,255,255,.12);padding-left:22px;display:grid;gap:9px}
+.sig-contact div{display:flex;align-items:center;gap:9px}
+.sig-contact i{width:27px;height:27px;border-radius:8px;background:rgba(255,255,255,.07);display:grid;place-items:center;color:#e2c795;font-style:normal}
+.sig-contact small{display:block;color:#879ca7;font-size:7px}
+.sig-contact b{display:block;font-size:10px;margin-top:2px}
+.phone{font-size:12px!important;letter-spacing:.06em}
+.footer{text-align:center;color:#8d969b;font-size:8px;letter-spacing:.13em;padding-bottom:26px}
+.ar{direction:rtl;text-align:right}
+.ar .change li{padding-left:0;padding-right:16px}.ar .change li:before{left:auto;right:0}
+.ar .filter-btn{text-align:right}
+.ar .intro-copy:before{left:auto;right:0}
+.ar .intro-copy:after{right:auto;left:18px}
+.ar .intro-number{border-right:0;border-left:1px solid #ded8ce;padding-right:0;padding-left:12px}
+.ar .sig-contact{direction:ltr;text-align:left}
+.ar .signature{direction:ltr;text-align:left}
+@media(max-width:1100px){
+  .intro{grid-template-columns:1fr}.intro-copy{order:1}.month-panel{order:2}.release-layout{grid-template-columns:1fr}.release-index{position:static}
+}
+@media(max-width:720px){
+  .header-inner{padding:10px 12px;height:auto;align-items:flex-start}.brand small{display:none}.actions{flex-wrap:wrap;justify-content:flex-end}
+  .main{padding:16px 12px 35px}.intro-copy{padding:22px 18px}.intro-main{grid-template-columns:1fr;gap:10px}.intro-number{border-right:0;border-bottom:1px solid #ded8ce;padding:0 0 10px;font-size:32px}.hero-stats{grid-template-columns:1fr 1fr 1fr}.release-cover{grid-template-columns:1fr}.date-block{min-height:auto}
+  .date-block .n{font-size:56px}.change-stream{padding:4px 18px 22px}.release-summary{padding:22px 18px}.change{grid-template-columns:40px 1fr;gap:11px}
+  .signature-wrap{padding:0 12px 28px}.signature{grid-template-columns:1fr;text-align:center}.seal{margin:auto}.sig-rule{margin:10px auto}.sig-contact{border-left:0;border-top:1px solid rgba(255,255,255,.12);padding:16px 0 0;min-width:0}.sig-contact div{justify-content:center}
+}
+@media print{.header,.release-index,.month-panel{display:none!important}.main{max-width:none;padding:10px}.intro{display:block}.release-sheet{box-shadow:none}.signature-wrap{padding:10px}}
 </style>
 </head>
 <body>
-<div class="site-shell">
-<header class="topnav"><div class="navinner"><div class="brand"><div class="brand-emblem">E</div><div>EMRINA<small>MASAR MAKKAH · SYSTEM DOSSIER</small></div></div><div class="navtools"><div class="switch"><button id="btnTr" class="active" onclick="switchLanguage('tr')">🇹🇷 Türkçe</button><button id="btnAr" onclick="switchLanguage('ar')">🇸🇦 العربية</button></div><button class="print-btn" onclick="window.print()">PRINT / PDF</button></div></div></header>
-
-<main id="turkishView" class="view active">
-<section class="hero"><div class="hero-copy"><div class="overline">EMRINA · MASAR MAKKAH</div><h1>Sistem <span>Güncelleme Dosyası</span></h1><p>Aşağıdaki maddeler, EMRINA sistemi üzerinde tamamlanan ve onaylanan temel geliştirmeleri özetlemektedir. İçerik; müşteri yönetimi, satış ve rezervasyon süreçleri, finans, yetkilendirme, ekler ve denetim altyapısını kapsamaktadır.</p></div><aside class="hero-board"><div class="big">11</div><div class="caption">ONAYLANAN ANA GÜNCELLEME</div><div class="rule"></div><div class="meta"><div>DİLLER<b>Türkçe · العربية</b></div><div>DURUM<b>Approved Summary</b></div></div></aside></section>
-<section class="domain-strip"><div class="domain-inner"><div class="domain"><b>01</b>CRM</div><div class="domain"><b>02</b>Unit UX</div><div class="domain"><b>03</b>Finance</div><div class="domain"><b>04</b>Contracts</div><div class="domain"><b>05</b>Governance</div><div class="domain"><b>06</b>Audit</div></div></section>
-<section class="timeline-wrap"><article class="chapter left">
-          <div class="chapter-index"><span>01</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">BÖLÜM</span></div>
-            <h3>Müşteri Yönetiminin Geliştirilmesi</h3>
-            <ul><li>Her müşteri için kimlik kartı veya pasaport kopyası yükleme imkânı eklendi.</li><li>Müşteriler sayfasına geçmeye gerek kalmadan rezervasyon veya satış ekranından doğrudan yeni müşteri eklenebiliyor.</li><li>Yeni müşteri otomatik olarak müşteri veritabanına ekleniyor ve ilgili işlem içinde hemen kullanılabilir hâle geliyor.</li><li>Kimlik/pasaport numarası veya cep telefonu numarası üzerinden mükerrer müşteri kaydını önleyen kontrol eklendi.</li></ul>
-          </div>
-        </article>
-<article class="chapter right">
-          <div class="chapter-index"><span>02</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">BÖLÜM</span></div>
-            <h3>Daire Detay Ekranının Geliştirilmesi</h3>
-            <ul><li>Daire detayları içinde kule görseli yeniden gösteriliyor.</li><li>Seçilen dairenin bulunduğu kat kule üzerinde açık ve belirgin şekilde işaretleniyor.</li><li>Kule görünümü ile mimari kat planı birbiriyle ilişkilendirilerek dairenin ve bulunduğu katın konumu daha kolay anlaşılır hâle getirildi.</li></ul>
-          </div>
-        </article>
-<article class="chapter left">
-          <div class="chapter-index"><span>03</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">BÖLÜM</span></div>
-            <h3>Tahsilat Sisteminin Geliştirilmesi</h3>
-            <ul><li>Tek bir tahsilat işlemi içinde birden fazla ödeme kaydedilebiliyor.</li><li>Her ödeme için ayrı ödeme yöntemi seçilebiliyor: Nakit, Banka Havalesi, POS, Çek veya Diğer.</li><li>Çekli ödemeler için çek numarası ve vade tarihi gibi özel alanlar eklendi.</li><li>Kaydedilmiş tahsilatların sonradan düzenlenebilmesi sağlandı.</li><li>Tahsilat düzenlemesi yapılırken değişiklik nedeninin girilmesi zorunlu hâle getirildi.</li><li>Değişiklik geçmişi; önceki değer, yeni değer, değişiklik zamanı, işlemi yapan kullanıcı ve değişiklik nedeni ile birlikte kaydediliyor.</li><li>Tahsilat tutarının sözleşmenin kalan bakiyesini aşmasını engelleyen kontrol mekanizması eklendi.</li></ul>
-          </div>
-        </article>
-<article class="chapter right">
-          <div class="chapter-index"><span>04</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">BÖLÜM</span></div>
-            <h3>Hesap Ekstrelerinin Geliştirilmesi</h3>
-            <ul><li>Hesap ekstresi artık yalnızca müşteri bazında değil, doğrudan satış sözleşmesi veya rezervasyon sözleşmesi bazında takip ediliyor.</li><li>Ekstrede sözleşme veya rezervasyon değeri, kapora, tahsilatlar, kalan bakiye, işlem hareketleri ve ilgili ekler gösteriliyor.</li><li>Hesap ekstresi Finans sayfasından doğrudan açılabiliyor ve yazdırılabiliyor.</li></ul>
-          </div>
-        </article>
-<article class="chapter left">
-          <div class="chapter-index"><span>05</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">BÖLÜM</span></div>
-            <h3>Rezervasyon ve Satış Süreçlerinin Geliştirilmesi</h3>
-            <ul><li>Rezervasyon iptali ve satış iptali işlemleri eklendi.</li><li>İptal nedeni, iptal tarihi, işlemi gerçekleştiren kullanıcı ve ilgili ekler kayıt altında tutuluyor.</li><li>İptal edilen işlem sistemden silinmiyor; geçmiş kaydı korunuyor.</li><li>Rezervasyonun uzatılması veya yenilenmesi için yeni tarih ve uzatma nedeni kaydedilebiliyor.</li><li>İnceleme ve denetimi kolaylaştırmak amacıyla işlemin tüm geçmişi korunuyor.</li></ul>
-          </div>
-        </article>
-<article class="chapter right">
-          <div class="chapter-index"><span>06</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">BÖLÜM</span></div>
-            <h3>İmza Sisteminin Eklenmesi</h3>
-            <ul><li>Sözleşmenin yazdırılıp fiziksel olarak imzalanması ve imzalı nüshanın sisteme yüklenmesi destekleniyor.</li><li>Sistem içinde elektronik imza süreci için ayrı bir akış eklendi.</li><li>İmzalar ve imzalı nüshalar ilgili rezervasyon veya satış sözleşmesine bağlanıyor.</li><li>Sistem; sunucu aşamasında OTP, e-posta bildirimi ve nihai elektronik imza hizmetleriyle entegre edilebilecek şekilde hazırlandı.</li></ul>
-          </div>
-        </article>
-<article class="chapter left">
-          <div class="chapter-index"><span>07</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">BÖLÜM</span></div>
-            <h3>Finans Sayfasının Geliştirilmesi</h3>
-            <ul><li>Satışların ve rezervasyonların finansal durumunu daha açık göstermek için sayfa yeniden düzenlendi.</li><li>Temel göstergeler eklendi: Toplam sözleşmeli satışlar, toplam tahsilat, kalan tutarlar, gecikmiş tutarlar, bekleyen çekler, aktif rezervasyon sayısı ve satış sözleşmesi sayısı.</li><li>Görsel grafik ve göstergeler eklendi: Rezervasyon ve satış hareketleri, aylık tahsilatlar, ödeme yöntemlerinin dağılımı, daire durumları (müsait / rezerve / satıldı), süresi yaklaşan rezervasyonlar ve gecikmeli ödeme bulunan sözleşmeler.</li></ul>
-          </div>
-        </article>
-<article class="chapter right">
-          <div class="chapter-index"><span>08</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">BÖLÜM</span></div>
-            <h3>Kapsamlı Sistem Kontrol Panelinin Oluşturulması</h3>
-            <ul><li>Giriş sonrasında erişilebilen küçük bir Kontrol Paneli simgesi (⚙️) eklendi.</li><li>Kontrol paneli; kullanıcı yönetimi, yetkiler, sistem ayarları, iptaller, ekler ve denetim kaydını içeriyor.</li><li>Bu alanın sistemin ana idari yönetim merkezi olması hedeflendi.</li></ul>
-          </div>
-        </article>
-<article class="chapter left">
-          <div class="chapter-index"><span>09</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">BÖLÜM</span></div>
-            <h3>Detaylı Kullanıcı Yetkilendirme Sisteminin Oluşturulması</h3>
-            <ul><li>Ana hesap, sistemdeki tüm işlevler üzerinde tam yetkiye sahip olacak şekilde yapılandırıldı.</li><li>Çok sınırlı ve ayrıntılı yetkilere sahip kullanıcılar oluşturulabiliyor.</li><li>Her kullanıcı için her bir yetki ayrı ayrı etkinleştirilebiliyor veya kaldırılabiliyor.</li><li>Yetkiler; müşteriler, rezervasyonlar, rezervasyon uzatma, rezervasyon iptali, satışlar, fiyat değişiklikleri, ödeme planları, tahsilatlar, tahsilat düzenleme, çekler, sözleşmeler, ekler, imza, fiyatlandırma, raporlar, ayarlar ve kullanıcı yönetimi gibi alanları kapsıyor.</li></ul>
-          </div>
-        </article>
-<article class="chapter right">
-          <div class="chapter-index"><span>10</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">BÖLÜM</span></div>
-            <h3>İptaller ve Ekler İçin Özel Merkez</h3>
-            <ul><li>İptal edilen tüm rezervasyon ve satışların merkezi olarak takip edilebileceği özel bir alan oluşturuldu.</li><li>İptal nedeni, tarih, kullanıcı, daire, müşteri ve ilgili ekler birlikte görüntülenebiliyor.</li><li>Müşteri dosyaları, sözleşmeler, rezervasyonlar, tahsilatlar ve imzalı nüshaların daha kolay görüntülenmesi için merkezi bir Ekler Merkezi oluşturuldu.</li><li>Görsellerin ve PDF dosyalarının daha kolay önizlenmesi destekleniyor.</li></ul>
-          </div>
-        </article>
-<article class="chapter left">
-          <div class="chapter-index"><span>11</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">BÖLÜM</span></div>
-            <h3>Denetim Kaydı - Audit Trail</h3>
-            <ul><li>Sistemdeki önemli işlemler kayıt altına alınıyor: tahsilat oluşturma veya düzenleme, iptaller, rezervasyon uzatmaları, kullanıcı ve yetki değişiklikleri, eklerin açılması ve sistem ayarlarındaki değişiklikler.</li><li>Amaç, sunucu tabanlı nihai sürüme geçmeden önce kontrol, izlenebilirlik ve şeffaflık seviyesini yükseltmektir.</li></ul>
-          </div>
-        </article></section>
-<div class="reference"><div class="reference-box"><span>Onaylı referans sürüm</span><code>EMRINA_Masar_Sales_Suite_ControlCenter_Permissions.html</code></div></div>
-</main>
-
-<main id="arabicView" class="view ar" aria-label="المحتوى العربي">
-<section class="hero"><div class="hero-copy"><div class="overline">EMRINA · MASAR MAKKAH</div><h1>ملف <span>تحديثات النظام</span></h1><p>تلخص البنود التالية أهم التطويرات التي تم تنفيذها واعتمادها على نظام EMRINA، وتشمل إدارة العملاء، والحجوزات والمبيعات، والمالية، والصلاحيات، والمرفقات، وسجل التدقيق.</p></div><aside class="hero-board" dir="rtl"><div class="big">11</div><div class="caption">تحديثًا رئيسيًا معتمدًا</div><div class="rule"></div><div class="meta"><div>اللغات<b>العربية · Türkçe</b></div><div>الحالة<b>ملخص معتمد</b></div></div></aside></section>
-<section class="domain-strip"><div class="domain-inner"><div class="domain"><b>01</b>العملاء</div><div class="domain"><b>02</b>الوحدات</div><div class="domain"><b>03</b>المالية</div><div class="domain"><b>04</b>العقود</div><div class="domain"><b>05</b>الحوكمة</div><div class="domain"><b>06</b>التدقيق</div></div></section>
-<section class="timeline-wrap"><article class="chapter left">
-          <div class="chapter-index"><span>01</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">التحديث</span></div>
-            <h3>تطوير إدارة العملاء</h3>
-            <ul><li>إضافة إمكانية رفع صورة الهوية أو جواز السفر لكل عميل.</li><li>إمكانية إضافة عميل جديد مباشرة من شاشة الحجز أو البيع بدون الحاجة للانتقال إلى صفحة العملاء.</li><li>العميل الجديد يضاف تلقائيًا إلى قاعدة العملاء ويصبح متاحًا مباشرة داخل المعاملة.</li><li>إضافة فحص لمنع تكرار العميل باستخدام رقم الهوية/الجواز أو رقم الجوال.</li></ul>
-          </div>
-        </article>
-<article class="chapter right">
-          <div class="chapter-index"><span>02</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">التحديث</span></div>
-            <h3>تطوير شاشة تفاصيل الوحدة</h3>
-            <ul><li>إعادة عرض شكل البرج داخل تفاصيل الوحدة.</li><li>إظهار الدور المرتبط بالوحدة المختارة بشكل واضح ومميز.</li><li>ربط عرض البرج مع المخطط المعماري للوحدة لتسهيل معرفة موقع الوحدة والدور.</li></ul>
-          </div>
-        </article>
-<article class="chapter left">
-          <div class="chapter-index"><span>03</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">التحديث</span></div>
-            <h3>تطوير نظام التحصيلات</h3>
-            <ul><li>إمكانية تسجيل أكثر من دفعة ضمن عملية تحصيل واحدة.</li><li>كل دفعة يمكن أن يكون لها طريقة دفع مستقلة مثل: نقدي، تحويل بنكي، POS، شيك أو غيرها.</li><li>إضافة بيانات خاصة بالشيكات مثل رقم الشيك وتاريخ الاستحقاق.</li><li>إمكانية تعديل التحصيل بعد تسجيله.</li><li>إلزام المستخدم بإدخال سبب التعديل.</li><li>حفظ سجل كامل للتعديل يوضح القيمة قبل وبعد التعديل، وقت التعديل، المستخدم الذي قام به، وسبب التعديل.</li><li>إضافة حماية تمنع تسجيل تحصيل يتجاوز الرصيد المتبقي للعقد.</li></ul>
-          </div>
-        </article>
-<article class="chapter right">
-          <div class="chapter-index"><span>04</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">التحديث</span></div>
-            <h3>تطوير كشوف الحساب</h3>
-            <ul><li>أصبح كشف الحساب مرتبطًا بعقد البيع أو اتفاقية الحجز وليس بالعميل فقط.</li><li>يعرض قيمة العقد أو الحجز، العربون، التحصيلات، المتبقي، سجل الحركات والمرفقات.</li><li>إمكانية فتح وطباعة كشف الحساب مباشرة من صفحة المالية.</li></ul>
-          </div>
-        </article>
-<article class="chapter left">
-          <div class="chapter-index"><span>05</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">التحديث</span></div>
-            <h3>تطوير الحجوزات والمبيعات</h3>
-            <ul><li>إضافة إمكانية إلغاء الحجز وإلغاء البيع.</li><li>حفظ سبب الإلغاء، تاريخ الإلغاء، المستخدم الذي قام بالإلغاء وأي مرفقات مرتبطة.</li><li>الاحتفاظ بالمعاملة الملغاة في السجل وعدم حذفها من النظام.</li><li>إضافة إمكانية تمديد أو تجديد الحجز مع تسجيل التاريخ الجديد وسبب التمديد.</li><li>المحافظة على تاريخ كامل للمعاملة لتسهيل المراجعة والرقابة.</li></ul>
-          </div>
-        </article>
-<article class="chapter right">
-          <div class="chapter-index"><span>06</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">التحديث</span></div>
-            <h3>إضافة نظام التوقيع</h3>
-            <ul><li>دعم التوقيع الورقي من خلال طباعة العقد ثم رفع النسخة الموقعة.</li><li>إضافة مسار للتوقيع الإلكتروني داخل النظام.</li><li>ربط التوقيعات والنسخ الموقعة بالحجز أو عقد البيع.</li><li>تجهيز النظام لربطه لاحقًا بخدمات OTP والبريد الإلكتروني والتوقيع النهائي على السيرفر.</li></ul>
-          </div>
-        </article>
-<article class="chapter left">
-          <div class="chapter-index"><span>07</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">التحديث</span></div>
-            <h3>تطوير صفحة المالية</h3>
-            <ul><li>إعادة تنظيم الصفحة لعرض وضع المبيعات والحجوزات بشكل أوضح.</li><li>إضافة مؤشرات رئيسية مثل: إجمالي المبيعات المتعاقدة، إجمالي المحصل، المبالغ المتبقية، المبالغ المتأخرة، الشيكات المعلقة، عدد الحجوزات النشطة، وعدد عقود البيع.</li><li>إضافة رسوم ومؤشرات بصرية توضح: حركة الحجوزات والمبيعات، التحصيلات الشهرية، توزيع طرق الدفع، حالة الوحدات (متاح، محجوز، مباع)، الحجوزات القريبة من الانتهاء، والعقود التي تحتوي على تأخر في السداد.</li></ul>
-          </div>
-        </article>
-<article class="chapter right">
-          <div class="chapter-index"><span>08</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">التحديث</span></div>
-            <h3>إنشاء لوحة تحكم شاملة للنظام</h3>
-            <ul><li>إضافة أيقونة لوحة التحكم ⚙️ بعد تسجيل الدخول.</li><li>تشمل إدارة المستخدمين، الصلاحيات، إعدادات النظام، الإلغاءات، المرفقات وسجل التدقيق.</li><li>الهدف أن تكون هذه الصفحة هي المركز الإداري الكامل للنظام.</li></ul>
-          </div>
-        </article>
-<article class="chapter left">
-          <div class="chapter-index"><span>09</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">التحديث</span></div>
-            <h3>إنشاء نظام صلاحيات تفصيلي للمستخدمين</h3>
-            <ul><li>الحساب الرئيسي لديه صلاحية كاملة على جميع وظائف النظام.</li><li>يمكن إنشاء مستخدمين بصلاحيات محددة جدًا.</li><li>يمكن تفعيل أو إلغاء كل صلاحية بشكل مستقل لكل مستخدم.</li><li>تشمل الصلاحيات: العملاء، الحجوزات، تمديد الحجوزات، إلغاء الحجوزات، المبيعات، تعديل الأسعار، خطط السداد، التحصيلات، تعديل التحصيل، الشيكات، العقود، المرفقات، التوقيع، التسعير، التقارير، الإعدادات والمستخدمين.</li></ul>
-          </div>
-        </article>
-<article class="chapter right">
-          <div class="chapter-index"><span>10</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">التحديث</span></div>
-            <h3>إضافة مركز خاص بالإلغاءات والمرفقات</h3>
-            <ul><li>إنشاء مكان مركزي لمتابعة جميع الحجوزات والمبيعات الملغاة.</li><li>عرض سبب الإلغاء، التاريخ، المستخدم، الوحدة، العميل والمرفقات.</li><li>إنشاء مركز مرفقات لتسهيل استعراض ملفات العملاء والعقود والحجوزات والتحصيلات والنسخ الموقعة.</li><li>دعم معاينة الصور وملفات PDF بطريقة أكثر سهولة.</li></ul>
-          </div>
-        </article>
-<article class="chapter left">
-          <div class="chapter-index"><span>11</span></div>
-          <div class="chapter-card">
-            <div class="chapter-top"><span class="chapter-line"></span><span class="chapter-label">التحديث</span></div>
-            <h3>إضافة سجل تدقيق Audit Trail</h3>
-            <ul><li>تسجيل العمليات المهمة داخل النظام مثل: إنشاء أو تعديل التحصيلات، الإلغاءات، تمديد الحجوزات، تعديل المستخدمين والصلاحيات، فتح المرفقات، وتغييرات الإعدادات.</li><li>الهدف هو رفع مستوى الرقابة والشفافية قبل الانتقال إلى نسخة السيرفر.</li></ul>
-          </div>
-        </article></section>
-<div class="reference"><div class="reference-box"><span>النسخة المرجعية المعتمدة</span><code dir="ltr">EMRINA_Masar_Sales_Suite_ControlCenter_Permissions.html</code></div></div>
-</main>
-
-<section class="signature-section">
-  <div class="signature-panel">
-    <div class="signature-seal" dir="ltr">MR</div>
-    <div class="signature-copy">
-      <div class="signature-kicker">DEVELOPED &amp; DESIGNED BY</div>
-      <div class="signature-name" dir="ltr">MALEK RAYYAN</div>
-      <div class="signature-line"></div>
-      <div class="signature-role" dir="ltr">CHIEF FINANCIAL OFFICER · CFO</div>
+<div class="app">
+<header class="header">
+  <div class="header-inner">
+    <div class="brand"><div class="logo" aria-hidden="true"></div><div><b>EMRINA</b><small>MASAR MAKKAH</small></div></div>
+    <div class="actions">
+      <div class="langs"><button id="trBtn" class="active" onclick="setLang('tr')">🇹🇷 Türkçe</button><button id="arBtn" onclick="setLang('ar')">🇸🇦 العربية</button></div>
+      <button class="print" onclick="window.print()">PRINT / PDF</button>
     </div>
-    <div class="signature-meta">
-      <span class="sig-tag">Design &amp; Development</span>
-      <div class="contact" dir="ltr">
-        <div class="contact-row"><span class="ico">⌖</span><div><small>Location</small><strong>Saudi Arabia</strong></div></div>
-        <div class="contact-row"><span class="ico">☎</span><div><small>Mobile</small><strong class="signature-phone">+966 54 265 2443</strong></div></div>
-      </div>
-      <div class="sig-foot">EMRINA · MASAR MAKKAH<br>Executive System Documentation</div>
+  </div>
+</header>
+<div id="root"></div>
+
+<section class="signature-wrap">
+  <div class="signature">
+    <div class="seal">MR</div>
+    <div>
+      <div class="sig-k">DEVELOPED &amp; DESIGNED BY</div>
+      <div class="sig-name">MALEK RAYYAN</div>
+      <div class="sig-rule"></div>
+      <div class="sig-role">CHIEF FINANCIAL OFFICER · CFO</div>
+    </div>
+    <div class="sig-contact">
+      <div><i>⌖</i><span><small>Location</small><b>Saudi Arabia</b></span></div>
+      <div><i>☎</i><span><small>Mobile</small><b class="phone">+966 54 265 2443</b></span></div>
     </div>
   </div>
 </section>
-<div class="footer">EMRINA · MASAR MAKKAH · SYSTEM UPDATE DOSSIER</div>
+<div class="footer">EMRINA · MASAR MAKKAH · RELEASE CALENDAR</div>
 </div>
+
 <script>
-function switchLanguage(lang){
- const tr=document.getElementById('turkishView'),ar=document.getElementById('arabicView');
- const bt=document.getElementById('btnTr'),ba=document.getElementById('btnAr');
- const isAr=lang==='ar';tr.classList.toggle('active',!isAr);ar.classList.toggle('active',isAr);bt.classList.toggle('active',!isAr);ba.classList.toggle('active',isAr);document.documentElement.lang=isAr?'ar':'tr';document.title=isAr?'EMRINA | ملف تحديثات النظام':'EMRINA | Sistem Güncelleme Dosyası';window.scrollTo({top:0,behavior:'smooth'});
+const DATA={
+  tr:{
+    heroTitle:"Sistem Güncelleme Takvimi",
+    heroText:"EMRINA geliştirmeleri artık takvim tabanlı bir kayıt sistemiyle izlenir. Her geliştirme günü ayrı bir sürüm kaydıdır; geçmiş tarihler her zaman açılabilir ve sonraki günler aynı yapıya eklenebilir.",
+    month:"Eylül 2026",week:["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"],legend:"Güncelleme bulunan gün",record:"Günlük Sürüm Kaydı",
+    releaseTitle:"23 Eylül 2026 · Onaylı Sistem Güncellemeleri",releaseText:"Bu kayıt, 23 Eylül 2026 tarihinde EMRINA Masar Makkah sistemi üzerinde tamamlanan ve onaylanan geliştirmeleri içerir.",
+    all:"Tüm Güncellemeler",search:"Güncellemelerde ara…",updates:"Güncelleme",areas:"Alan",reference:"Onaylı referans sürüm",
+    cats:{crm:"Müşteri Yönetimi",unit:"Daire / Arayüz",finance:"Finans",contract:"Rezervasyon & Sözleşme",governance:"Yönetim & Yetki",audit:"Denetim"},
+    items:[
+      ["crm","Müşteri Yönetiminin Geliştirilmesi",["Her müşteri için kimlik kartı veya pasaport kopyası yükleme imkânı eklendi.","Müşteriler sayfasına geçmeye gerek kalmadan rezervasyon veya satış ekranından doğrudan yeni müşteri eklenebiliyor.","Yeni müşteri otomatik olarak müşteri veritabanına ekleniyor ve ilgili işlem içinde hemen kullanılabilir hâle geliyor.","Kimlik/pasaport numarası veya cep telefonu numarası üzerinden mükerrer müşteri kaydını önleyen kontrol eklendi."]],
+      ["unit","Daire Detay Ekranının Geliştirilmesi",["Daire detayları içinde kule görseli yeniden gösteriliyor.","Seçilen dairenin bulunduğu kat kule üzerinde açık ve belirgin şekilde işaretleniyor.","Kule görünümü ile mimari kat planı birbiriyle ilişkilendirilerek dairenin ve bulunduğu katın konumu daha kolay anlaşılır hâle getirildi."]],
+      ["finance","Tahsilat Sisteminin Geliştirilmesi",["Tek bir tahsilat işlemi içinde birden fazla ödeme kaydedilebiliyor.","Her ödeme için ayrı ödeme yöntemi seçilebiliyor: Nakit, Banka Havalesi, POS, Çek veya Diğer.","Çekli ödemeler için çek numarası ve vade tarihi gibi özel alanlar eklendi.","Kaydedilmiş tahsilatların sonradan düzenlenebilmesi sağlandı.","Tahsilat düzenlemesi yapılırken değişiklik nedeninin girilmesi zorunlu hâle getirildi.","Değişiklik geçmişi; önceki değer, yeni değer, değişiklik zamanı, işlemi yapan kullanıcı ve değişiklik nedeni ile birlikte kaydediliyor.","Tahsilat tutarının sözleşmenin kalan bakiyesini aşmasını engelleyen kontrol mekanizması eklendi."]],
+      ["finance","Hesap Ekstrelerinin Geliştirilmesi",["Hesap ekstresi artık yalnızca müşteri bazında değil, doğrudan satış sözleşmesi veya rezervasyon sözleşmesi bazında takip ediliyor.","Ekstrede sözleşme veya rezervasyon değeri, kapora, tahsilatlar, kalan bakiye, işlem hareketleri ve ilgili ekler gösteriliyor.","Hesap ekstresi Finans sayfasından doğrudan açılabiliyor ve yazdırılabiliyor."]],
+      ["contract","Rezervasyon ve Satış Süreçlerinin Geliştirilmesi",["Rezervasyon iptali ve satış iptali işlemleri eklendi.","İptal nedeni, iptal tarihi, işlemi gerçekleştiren kullanıcı ve ilgili ekler kayıt altında tutuluyor.","İptal edilen işlem sistemden silinmiyor; geçmiş kaydı korunuyor.","Rezervasyonun uzatılması veya yenilenmesi için yeni tarih ve uzatma nedeni kaydedilebiliyor.","İnceleme ve denetimi kolaylaştırmak amacıyla işlemin tüm geçmişi korunuyor."]],
+      ["contract","İmza Sisteminin Eklenmesi",["Sözleşmenin yazdırılıp fiziksel olarak imzalanması ve imzalı nüshanın sisteme yüklenmesi destekleniyor.","Sistem içinde elektronik imza süreci için ayrı bir akış eklendi.","İmzalar ve imzalı nüshalar ilgili rezervasyon veya satış sözleşmesine bağlanıyor.","Sistem; sunucu aşamasında OTP, e-posta bildirimi ve nihai elektronik imza hizmetleriyle entegre edilebilecek şekilde hazırlandı."]],
+      ["finance","Finans Sayfasının Geliştirilmesi",["Satışların ve rezervasyonların finansal durumunu daha açık göstermek için sayfa yeniden düzenlendi.","Temel göstergeler eklendi: Toplam sözleşmeli satışlar, toplam tahsilat, kalan tutarlar, gecikmiş tutarlar, bekleyen çekler, aktif rezervasyon sayısı ve satış sözleşmesi sayısı.","Görsel grafik ve göstergeler eklendi: Rezervasyon ve satış hareketleri, aylık tahsilatlar, ödeme yöntemlerinin dağılımı, daire durumları (müsait / rezerve / satıldı), süresi yaklaşan rezervasyonlar ve gecikmeli ödeme bulunan sözleşmeler."]],
+      ["governance","Kapsamlı Sistem Kontrol Panelinin Oluşturulması",["Giriş sonrasında erişilebilen küçük bir Kontrol Paneli simgesi (⚙️) eklendi.","Kontrol paneli; kullanıcı yönetimi, yetkiler, sistem ayarları, iptaller, ekler ve denetim kaydını içeriyor.","Bu alanın sistemin ana idari yönetim merkezi olması hedeflendi."]],
+      ["governance","Detaylı Kullanıcı Yetkilendirme Sisteminin Oluşturulması",["Ana hesap, sistemdeki tüm işlevler üzerinde tam yetkiye sahip olacak şekilde yapılandırıldı.","Çok sınırlı ve ayrıntılı yetkilere sahip kullanıcılar oluşturulabiliyor.","Her kullanıcı için her bir yetki ayrı ayrı etkinleştirilebiliyor veya kaldırılabiliyor.","Yetkiler; müşteriler, rezervasyonlar, rezervasyon uzatma, rezervasyon iptali, satışlar, fiyat değişiklikleri, ödeme planları, tahsilatlar, tahsilat düzenleme, çekler, sözleşmeler, ekler, imza, fiyatlandırma, raporlar, ayarlar ve kullanıcı yönetimi gibi alanları kapsıyor."]],
+      ["governance","İptaller ve Ekler İçin Özel Merkez",["İptal edilen tüm rezervasyon ve satışların merkezi olarak takip edilebileceği özel bir alan oluşturuldu.","İptal nedeni, tarih, kullanıcı, daire, müşteri ve ilgili ekler birlikte görüntülenebiliyor.","Müşteri dosyaları, sözleşmeler, rezervasyonlar, tahsilatlar ve imzalı nüshaların daha kolay görüntülenmesi için merkezi bir Ekler Merkezi oluşturuldu.","Görsellerin ve PDF dosyalarının daha kolay önizlenmesi destekleniyor."]],
+      ["audit","Denetim Kaydı - Audit Trail",["Sistemdeki önemli işlemler kayıt altına alınıyor: tahsilat oluşturma veya düzenleme, iptaller, rezervasyon uzatmaları, kullanıcı ve yetki değişiklikleri, eklerin açılması ve sistem ayarlarındaki değişiklikler.","Amaç, sunucu tabanlı nihai sürüme geçmeden önce kontrol, izlenebilirlik ve şeffaflık seviyesini yükseltmektir."]]
+    ]
+  },
+  ar:{
+    heroTitle:"تقويم تحديثات النظام",
+    heroText:"أصبحت تحديثات EMRINA منظمة كسجل زمني يعتمد على التاريخ. كل يوم تطوير يظهر كسجل مستقل يمكن الرجوع إليه لاحقًا، ويمكن إضافة تحديثات الأيام القادمة مع الاحتفاظ الكامل بسجل الأيام السابقة.",
+    month:"سبتمبر 2026",week:["اثن","ثلا","أرب","خمي","جمع","سبت","أحد"],legend:"يوم يحتوي على تحديثات",record:"سجل الإصدار اليومي",
+    releaseTitle:"23 سبتمبر 2026 · تحديثات النظام المعتمدة",releaseText:"يتضمن هذا السجل جميع التحديثات التي تم تنفيذها واعتمادها على نظام EMRINA لمشروع مسار مكة بتاريخ 23 سبتمبر 2026.",
+    all:"جميع التحديثات",search:"ابحث داخل تحديثات اليوم…",updates:"تحديث",areas:"مجال",reference:"النسخة المرجعية المعتمدة",
+    cats:{crm:"إدارة العملاء",unit:"الوحدات / الواجهة",finance:"المالية",contract:"الحجوزات والعقود",governance:"الإدارة والصلاحيات",audit:"التدقيق"},
+    items:[
+      ["crm","تطوير إدارة العملاء",["إضافة إمكانية رفع صورة الهوية أو جواز السفر لكل عميل.","إمكانية إضافة عميل جديد مباشرة من شاشة الحجز أو البيع بدون الحاجة للانتقال إلى صفحة العملاء.","العميل الجديد يضاف تلقائيًا إلى قاعدة العملاء ويصبح متاحًا مباشرة داخل المعاملة.","إضافة فحص لمنع تكرار العميل باستخدام رقم الهوية/الجواز أو رقم الجوال."]],
+      ["unit","تطوير شاشة تفاصيل الوحدة",["إعادة عرض شكل البرج داخل تفاصيل الوحدة.","إظهار الدور المرتبط بالوحدة المختارة بشكل واضح ومميز.","ربط عرض البرج مع المخطط المعماري للوحدة لتسهيل معرفة موقع الوحدة والدور."]],
+      ["finance","تطوير نظام التحصيلات",["إمكانية تسجيل أكثر من دفعة ضمن عملية تحصيل واحدة.","كل دفعة يمكن أن يكون لها طريقة دفع مستقلة مثل: نقدي، تحويل بنكي، POS، شيك أو غيرها.","إضافة بيانات خاصة بالشيكات مثل رقم الشيك وتاريخ الاستحقاق.","إمكانية تعديل التحصيل بعد تسجيله.","إلزام المستخدم بإدخال سبب التعديل.","حفظ سجل كامل للتعديل يوضح القيمة قبل وبعد التعديل، وقت التعديل، المستخدم الذي قام به، وسبب التعديل.","إضافة حماية تمنع تسجيل تحصيل يتجاوز الرصيد المتبقي للعقد."]],
+      ["finance","تطوير كشوف الحساب",["أصبح كشف الحساب مرتبطًا بعقد البيع أو اتفاقية الحجز وليس بالعميل فقط.","يعرض قيمة العقد أو الحجز، العربون، التحصيلات، المتبقي، سجل الحركات والمرفقات.","إمكانية فتح وطباعة كشف الحساب مباشرة من صفحة المالية."]],
+      ["contract","تطوير الحجوزات والمبيعات",["إضافة إمكانية إلغاء الحجز وإلغاء البيع.","حفظ سبب الإلغاء، تاريخ الإلغاء، المستخدم الذي قام بالإلغاء وأي مرفقات مرتبطة.","الاحتفاظ بالمعاملة الملغاة في السجل وعدم حذفها من النظام.","إضافة إمكانية تمديد أو تجديد الحجز مع تسجيل التاريخ الجديد وسبب التمديد.","المحافظة على تاريخ كامل للمعاملة لتسهيل المراجعة والرقابة."]],
+      ["contract","إضافة نظام التوقيع",["دعم التوقيع الورقي من خلال طباعة العقد ثم رفع النسخة الموقعة.","إضافة مسار للتوقيع الإلكتروني داخل النظام.","ربط التوقيعات والنسخ الموقعة بالحجز أو عقد البيع.","تجهيز النظام لربطه لاحقًا بخدمات OTP والبريد الإلكتروني والتوقيع النهائي على السيرفر."]],
+      ["finance","تطوير صفحة المالية",["إعادة تنظيم الصفحة لعرض وضع المبيعات والحجوزات بشكل أوضح.","إضافة مؤشرات رئيسية مثل: إجمالي المبيعات المتعاقدة، إجمالي المحصل، المبالغ المتبقية، المبالغ المتأخرة، الشيكات المعلقة، عدد الحجوزات النشطة، وعدد عقود البيع.","إضافة رسوم ومؤشرات بصرية توضح: حركة الحجوزات والمبيعات، التحصيلات الشهرية، توزيع طرق الدفع، حالة الوحدات (متاح، محجوز، مباع)، الحجوزات القريبة من الانتهاء، والعقود التي تحتوي على تأخر في السداد."]],
+      ["governance","إنشاء لوحة تحكم شاملة للنظام",["إضافة أيقونة لوحة التحكم ⚙️ بعد تسجيل الدخول.","تشمل إدارة المستخدمين، الصلاحيات، إعدادات النظام، الإلغاءات، المرفقات وسجل التدقيق.","الهدف أن تكون هذه الصفحة هي المركز الإداري الكامل للنظام."]],
+      ["governance","إنشاء نظام صلاحيات تفصيلي للمستخدمين",["الحساب الرئيسي لديه صلاحية كاملة على جميع وظائف النظام.","يمكن إنشاء مستخدمين بصلاحيات محددة جدًا.","يمكن تفعيل أو إلغاء كل صلاحية بشكل مستقل لكل مستخدم.","تشمل الصلاحيات: العملاء، الحجوزات، تمديد الحجوزات، إلغاء الحجوزات، المبيعات، تعديل الأسعار، خطط السداد، التحصيلات، تعديل التحصيل، الشيكات، العقود، المرفقات، التوقيع، التسعير، التقارير، الإعدادات والمستخدمين."]],
+      ["governance","إضافة مركز خاص بالإلغاءات والمرفقات",["إنشاء مكان مركزي لمتابعة جميع الحجوزات والمبيعات الملغاة.","عرض سبب الإلغاء، التاريخ، المستخدم، الوحدة، العميل والمرفقات.","إنشاء مركز مرفقات لتسهيل استعراض ملفات العملاء والعقود والحجوزات والتحصيلات والنسخ الموقعة.","دعم معاينة الصور وملفات PDF بطريقة أكثر سهولة."]],
+      ["audit","إضافة سجل تدقيق Audit Trail",["تسجيل العمليات المهمة داخل النظام مثل: إنشاء أو تعديل التحصيلات، الإلغاءات، تمديد الحجوزات، تعديل المستخدمين والصلاحيات، فتح المرفقات، وتغييرات الإعدادات.","الهدف هو رفع مستوى الرقابة والشفافية قبل الانتقال إلى نسخة السيرفر."]]
+    ]
+  }
+};
+const reference="EMRINA_Masar_Sales_Suite_ControlCenter_Permissions.html";
+let lang="tr",filter="all",q="";
+function e(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function setLang(v){lang=v;document.documentElement.lang=v;document.documentElement.dir=v==="ar"?"rtl":"ltr";document.getElementById("trBtn").classList.toggle("active",v==="tr");document.getElementById("arBtn").classList.toggle("active",v==="ar");render()}
+function setFilter(v){filter=v;render()}
+function setQ(v){q=(v||"").trim().toLowerCase();render()}
+function calendarHTML(D){
+ const blanks=1; let cells="";
+ for(let i=0;i<blanks;i++)cells+=`<div class="day empty"></div>`;
+ for(let d=1;d<=30;d++)cells+=`<div class="day ${d===23?"release":""}" ${d===23?'title="23"':''}>${d}</div>`;
+ return `<div class="weekdays">${D.week.map(x=>`<div>${e(x)}</div>`).join("")}</div><div class="calendar">${cells}</div>`
 }
+function render(){
+ const D=DATA[lang], counts={};D.items.forEach(x=>counts[x[0]]=(counts[x[0]]||0)+1);
+ const shown=D.items.map((x,i)=>({x,i})).filter(o=>(filter==="all"||o.x[0]===filter)&&(!q||(o.x[1]+" "+o.x[2].join(" ")).toLowerCase().includes(q)));
+ const cats=[["all",D.all],...Object.entries(D.cats)];
+ document.getElementById("root").innerHTML=`<main class="main ${lang==="ar"?"ar":""}">
+   <section class="intro">
+     <div class="intro-copy">
+       <div class="intro-topline"><div class="kicker">EMRINA · MASAR MAKKAH · ${e(D.record)}</div><div class="release-badge">23.09.2026</div></div>
+       <div class="intro-main"><div class="intro-number">01</div><div><h1>${e(D.heroTitle)}</h1><p>${e(D.heroText)}</p></div></div>
+       <div class="hero-stats"><div class="hero-stat"><span>${e(D.updates)}</span><b>11</b></div><div class="hero-stat"><span>${e(D.areas)}</span><b>${Object.keys(counts).length}</b></div><div class="hero-stat"><span>${e(D.record)}</span><b>23.09.2026</b></div></div>
+     </div>
+     <div class="month-panel">
+       <div class="month-head"><div><span>RELEASE CALENDAR</span><b>${e(D.month)}</b></div><span>2026</span></div>
+       ${calendarHTML(D)}
+       <div class="month-note"><i></i><span>${e(D.legend)}</span></div>
+     </div>
+   </section>
+   <section class="release-layout">
+     <aside class="release-index">
+       <h3>${e(D.record)}</h3>
+       <p>${e(D.releaseText)}</p>
+       <div class="index-meta"><div><span>${e(D.updates)}</span><b>11</b></div><div><span>${e(D.areas)}</span><b>${Object.keys(counts).length}</b></div></div>
+       <div class="filter-list">${cats.map(([k,v])=>`<button class="filter-btn ${filter===k?"active":""}" onclick="setFilter('${k}')"><span class="left"><i class="dot"></i>${e(v)}</span><small>${k==="all"?11:(counts[k]||0)}</small></button>`).join("")}</div>
+       <div class="searchbox"><span>⌕</span><input value="${e(q)}" oninput="setQ(this.value)" placeholder="${e(D.search)}"></div>
+       <div class="refbox"><span>${e(D.reference)}</span><code dir="ltr">${e(reference)}</code></div>
+     </aside>
+     <article class="release-sheet">
+       <header class="release-cover">
+         <div class="date-block"><div><div class="n">23</div><div class="m">${lang==="ar"?"سبتمبر":"EYLÜL"}</div><div class="y">2026</div></div><div class="stamp">${e(D.record)}</div></div>
+         <div class="release-summary"><div class="eyebrow">APPROVED RELEASE · 23.09.2026</div><h2>${e(D.releaseTitle)}</h2><p>${e(D.releaseText)}</p><div class="legend">${Object.entries(D.cats).map(([k,v])=>`<span>${e(v)} · ${counts[k]||0}</span>`).join("")}</div></div>
+       </header>
+       <div class="change-stream">${shown.map(o=>`<section class="change"><div class="change-no">${String(o.i+1).padStart(2,"0")}</div><div><div class="change-cat">${e(D.cats[o.x[0]])}</div><h3>${e(o.x[1])}</h3><ul>${o.x[2].map(b=>`<li>${e(b)}</li>`).join("")}</ul></div></section>`).join("")}</div>
+     </article>
+   </section>
+ </main>`;
+}
+render();
 </script>
-</body></html>
+</body>
+</html>
