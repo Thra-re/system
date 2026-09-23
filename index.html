@@ -36,6 +36,10 @@ a{color:inherit}
 .actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .chip,.action-btn{border:1px solid var(--line);background:rgba(255,255,255,.78);border-radius:999px;padding:7px 11px;font-size:12px;text-decoration:none;cursor:pointer;color:var(--navy);font-weight:700}
 .action-btn:hover,.chip:hover{border-color:#cdbd9d;background:#fff}
+.language-switch{display:flex;align-items:center;gap:7px;padding:4px;border:1px solid var(--line);background:rgba(255,255,255,.58);border-radius:999px}
+.lang-btn{border:0;background:transparent;border-radius:999px;padding:7px 11px;font-size:12px;cursor:pointer;color:#66757b;font-weight:800;display:flex;align-items:center;gap:7px;transition:.18s ease}
+.lang-btn .flag{font-size:15px;line-height:1}.lang-btn:hover{background:#fff;color:var(--navy)}.lang-btn.active{background:var(--navy);color:#fff;box-shadow:0 6px 14px rgba(16,38,49,.16)}
+.language-view{display:none}.language-view.active{display:block}
 .hero{margin-top:34px;border-radius:30px;background:
  linear-gradient(135deg,rgba(255,255,255,.07),transparent 36%),
  linear-gradient(135deg,var(--navy) 0%,#173845 62%,#214b59 100%);
@@ -79,12 +83,26 @@ ul.clean li:before{content:"";position:absolute;inset-inline-start:2px;top:.73em
 .reference{margin-top:30px;background:#efe9dc;border:1px solid #ded3c1;border-radius:18px;padding:16px 18px;display:flex;justify-content:space-between;gap:15px;align-items:center;color:#5d5549;font-size:13px}
 .reference code{font-family:Consolas,"Courier New",monospace;background:#fff;border:1px solid #ddd3c2;border-radius:8px;padding:5px 8px;color:var(--navy);word-break:break-all}
 .footer{margin-top:28px;text-align:center;color:#7a817f;font-size:11px}
-.developer-credit{margin-top:22px;padding:22px 24px;border:1px solid #ddd3c2;border-radius:18px;background:linear-gradient(135deg,#fbf8f1 0%,#f1eadc 100%);display:flex;align-items:center;justify-content:space-between;gap:18px;box-shadow:0 12px 28px rgba(19,39,51,.05)}
-.developer-credit .credit-label{font-size:11px;color:#86785f;margin-bottom:6px}
-.developer-credit .credit-name{font-size:20px;font-weight:900;letter-spacing:.8px;color:var(--navy)}
-.developer-credit .credit-role{font-size:11px;font-weight:800;color:#b68a3a;margin-top:4px;letter-spacing:1.4px}
-.developer-credit .credit-mark{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--navy);color:#fff;font-size:18px;font-weight:900;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
-@media(max-width:620px){.developer-credit{align-items:flex-start}.developer-credit .credit-name{font-size:17px}}
+.signature-panel{position:relative;margin-top:28px;overflow:hidden;border-radius:24px;background:linear-gradient(135deg,#102430 0%,#172f3d 55%,#0d1f29 100%);min-height:150px;display:grid;grid-template-columns:130px 1fr auto;align-items:center;gap:26px;padding:26px 30px;border:1px solid rgba(199,160,86,.35);box-shadow:0 22px 50px rgba(12,31,41,.18)}
+.signature-panel:before{content:'MR';position:absolute;right:28px;top:-34px;font-size:146px;font-weight:900;letter-spacing:-10px;color:rgba(255,255,255,.028);line-height:1;pointer-events:none}
+.signature-panel:after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 18% 20%,rgba(200,161,86,.16),transparent 32%),linear-gradient(90deg,transparent,rgba(255,255,255,.025),transparent);pointer-events:none}
+.signature-seal{position:relative;z-index:1;width:96px;height:96px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(214,180,111,.7);box-shadow:0 0 0 8px rgba(201,160,78,.06),inset 0 0 28px rgba(255,255,255,.03);color:#e3c383;font-size:28px;font-weight:900;letter-spacing:1px;margin:auto}
+.signature-seal:before{content:'';position:absolute;inset:7px;border:1px dashed rgba(227,195,131,.32);border-radius:50%}
+.signature-copy{position:relative;z-index:1;min-width:0}
+.signature-kicker{font-size:10px;font-weight:700;letter-spacing:.4px;color:#cfb06f;margin-bottom:8px}
+.signature-name{font-size:30px;font-weight:900;letter-spacing:1.8px;color:#fff;line-height:1.05;white-space:nowrap}
+.signature-line{width:82px;height:2px;background:linear-gradient(90deg,#c79c50,rgba(199,156,80,0));margin:12px 0 9px}
+.signature-role{font-size:11px;color:#cbd4d8;letter-spacing:2.4px;font-weight:800}
+.signature-meta{position:relative;z-index:1;text-align:left;direction:ltr;padding-left:24px;border-left:1px solid rgba(255,255,255,.12)}
+.signature-meta .tag{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border-radius:999px;border:1px solid rgba(219,183,112,.35);background:rgba(219,183,112,.08);color:#e2c280;font-size:8px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}
+.signature-meta .tag:before{content:'';width:6px;height:6px;border-radius:50%;background:#d7b56f;box-shadow:0 0 0 4px rgba(215,181,111,.10)}
+.signature-meta small{display:block;margin-top:10px;color:#82949e;font-size:8px;line-height:1.5}
+.signature-contact{margin-top:14px;display:grid;gap:8px}
+.signature-contact-row{display:grid;grid-template-columns:20px 1fr;gap:9px;align-items:center;color:#d9e1e4;font-size:11px;letter-spacing:.25px}
+.signature-contact-row .ico{width:20px;height:20px;border-radius:7px;display:grid;place-items:center;border:1px solid rgba(219,183,112,.28);background:rgba(219,183,112,.07);color:#e4c987;font-size:10px}
+.signature-contact-row strong{color:#fff;font-weight:800;letter-spacing:.7px}.signature-phone{font-size:13px!important;letter-spacing:1.2px!important;white-space:nowrap}
+.signature-meta .contact-label{color:#80929c;font-size:7px;text-transform:uppercase;letter-spacing:1.25px;display:block;margin-bottom:1px}
+@media(max-width:720px){.signature-panel{grid-template-columns:82px 1fr;padding:22px 20px;gap:18px}.signature-seal{width:70px;height:70px;font-size:22px}.signature-name{font-size:22px;white-space:normal}.signature-meta{grid-column:1/-1;border-left:0;border-top:1px solid rgba(255,255,255,.1);padding:14px 0 0;text-align:right;direction:rtl}.signature-panel:before{font-size:108px;right:10px;top:-16px}}
 @media(max-width:860px){.hero{padding:34px 26px}.hero-grid{grid-template-columns:1fr}.hero-stats{grid-template-columns:repeat(2,minmax(0,1fr));max-width:300px}.cards{grid-template-columns:1fr}.featured{grid-column:auto}.featured .card-body{columns:1}.section-intro{align-items:flex-start;flex-direction:column}.reference{align-items:flex-start;flex-direction:column}.topbar-inner{align-items:flex-start}}
 @media(max-width:560px){.shell{padding:0 14px 45px}.topbar{margin:0 -14px;padding:9px 14px}.brand small{display:none}.chip{display:none}.hero{border-radius:22px;padding:28px 20px}.hero h1{font-size:34px}.card-head{grid-template-columns:58px 1fr}.ar .card-head{grid-template-columns:1fr 58px}.card-number{font-size:19px}.card-title{font-size:15px;padding:12px 14px}.card-body{padding:15px}.actions .action-btn{padding:7px 9px}}
 @media print{.topbar{display:none}.shell{max-width:none;padding:0}.hero{box-shadow:none;break-after:avoid}.update-card{box-shadow:none;break-inside:avoid}.divider{break-before:page}.actions{display:none}body{background:white}.reference{break-inside:avoid}}
@@ -96,13 +114,16 @@ ul.clean li:before{content:"";position:absolute;inset-inline-start:2px;top:.73em
     <div class="topbar-inner">
       <div class="brand"><span class="brand-mark"></span><span>EMRINA<small>MASAR MAKKAH</small></span></div>
       <div class="actions">
-        <a class="chip" href="#turkce">Türkçe</a>
-        <a class="chip" href="#arabic">العربية</a>
+        <div class="language-switch" aria-label="Language selector">
+          <button id="btnTr" class="lang-btn active" type="button" onclick="switchLanguage('tr')"><span class="flag">🇹🇷</span><span>Türkçe</span></button>
+          <button id="btnAr" class="lang-btn" type="button" onclick="switchLanguage('ar')"><span class="flag">🇸🇦</span><span>العربية</span></button>
+        </div>
         <button class="action-btn" onclick="window.print()">Print / PDF</button>
       </div>
     </div>
   </div>
 
+  <main id="turkishView" class="language-view active" aria-label="Türkçe içerik">
   <section class="hero" id="turkce">
     <div class="hero-grid">
       <div>
@@ -198,8 +219,10 @@ ul.clean li:before{content:"";position:absolute;inset-inline-start:2px;top:.73em
     </ul></div></article>
   </section>
 
-  <div class="divider"><span>العربية</span></div>
+  <div class="reference"><strong>Onaylı referans sürüm</strong><code dir="ltr">EMRINA_Masar_Sales_Suite_ControlCenter_Permissions.html</code></div>
+</main>
 
+<main id="arabicView" class="language-view" aria-label="المحتوى العربي">
   <section class="ar" id="arabic">
     <div class="hero-ar">
       <strong>مشروع مسار مكة - تحديثات نظام EMRINA</strong>
@@ -289,17 +312,49 @@ ul.clean li:before{content:"";position:absolute;inset-inline-start:2px;top:.73em
   </section>
 
   <div class="reference ar"><strong>النسخة المرجعية المعتمدة</strong><code dir="ltr">EMRINA_Masar_Sales_Suite_ControlCenter_Permissions.html</code></div>
+</main>
 
-  <div class="developer-credit ar">
-    <div>
-      <div class="credit-label">تم التطوير والتصميم بواسطة</div>
-      <div class="credit-name" dir="ltr">MALEK RAYYAN</div>
-      <div class="credit-role" dir="ltr">CFO</div>
+  <div class="signature-panel">
+    <div class="signature-seal" dir="ltr">MR</div>
+    <div class="signature-copy">
+      <div class="signature-kicker">DEVELOPED &amp; DESIGNED BY</div>
+      <div class="signature-name" dir="ltr">MALEK RAYYAN</div>
+      <div class="signature-line"></div>
+      <div class="signature-role" dir="ltr">CHIEF FINANCIAL OFFICER · CFO</div>
     </div>
-    <div class="credit-mark">MR</div>
+    <div class="signature-meta">
+      <span class="tag">Design &amp; Development</span>
+      <div class="signature-contact" dir="ltr">
+        <div class="signature-contact-row">
+          <span class="ico">⌖</span>
+          <div><span class="contact-label">Location</span><strong>Saudi Arabia</strong></div>
+        </div>
+        <div class="signature-contact-row">
+          <span class="ico">☎</span>
+          <div><span class="contact-label">Mobile</span><strong class="signature-phone">+966 54 265 2443</strong></div>
+        </div>
+      </div>
+      <small>EMRINA · MASAR MAKKAH<br>Executive System Documentation</small>
+    </div>
   </div>
 
   <div class="footer">EMRINA · MASAR MAKKAH · System Update Summary</div>
 </div>
+<script>
+function switchLanguage(lang){
+  const tr=document.getElementById('turkishView');
+  const ar=document.getElementById('arabicView');
+  const bTr=document.getElementById('btnTr');
+  const bAr=document.getElementById('btnAr');
+  const isAr=lang==='ar';
+  tr.classList.toggle('active',!isAr);
+  ar.classList.toggle('active',isAr);
+  bTr.classList.toggle('active',!isAr);
+  bAr.classList.toggle('active',isAr);
+  document.documentElement.lang=isAr?'ar':'tr';
+  document.title=isAr?'EMRINA | مسار مكة - تحديثات النظام':'EMRINA | Masar Mekke - Sistem Güncellemeleri';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
 </body>
 </html>
