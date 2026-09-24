@@ -144,6 +144,18 @@ button,input{font:inherit}
   .signature-wrap{padding:0 12px 28px}.signature{grid-template-columns:1fr;text-align:center}.seal{margin:auto}.sig-rule{margin:10px auto}.sig-contact{border-left:0;border-top:1px solid rgba(255,255,255,.12);padding:16px 0 0;min-width:0}.sig-contact div{justify-content:center}
 }
 @media print{.header,.release-index,.month-panel{display:none!important}.main{max-width:none;padding:10px}.intro{display:block}.release-sheet{box-shadow:none}.signature-wrap{padding:10px}}
+
+/* Full-history trial: estimated daily engineering effort */
+.hours-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid #d9d3c9;background:#fffaf1;color:#735a31;border-radius:999px;padding:6px 10px;font-size:8px;font-weight:900;white-space:nowrap}
+.hours-chip i{width:7px;height:7px;border-radius:50%;background:#b6463c;display:block}
+.history-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.history-summary>div{border:1px solid var(--line);background:#fbfaf7;border-radius:10px;padding:9px}
+.history-summary span{display:block;font-size:7px;color:#8a9298;text-transform:uppercase;letter-spacing:.08em}
+.history-summary b{display:block;font-size:13px;margin-top:3px}
+.hours-note{margin-top:10px;padding:9px 10px;border-radius:10px;background:#f8f5ee;color:#7b7469;font-size:7.5px;line-height:1.55;border:1px dashed #ded7cb}
+.day.release:before{content:attr(data-hours);position:absolute;left:4px;bottom:3px;font-size:5.8px;color:#fbe6e3;background:rgba(255,255,255,.13);border-radius:999px;padding:1px 3px}
+@media(max-width:720px){.history-summary{grid-template-columns:1fr 1fr}.history-summary>div:last-child{grid-column:1/-1}}
+
 </style>
 </head>
 <body>
@@ -178,13 +190,264 @@ button,input{font:inherit}
 </div>
 
 <script>
-const DATA={
+const REPORT_META={
+  reference:"EMRINA_Masar_Sales_Suite_ControlCenter_Permissions.html",
+  estimateHours:true,
+  totalHours:59,
+  developmentDays:6
+};
+
+const RELEASES={
+"2026-09-14":{
+  hours:11,
   tr:{
-    heroTitle:"Sistem Güncelleme Takvimi",
-    heroText:"EMRINA geliştirmeleri artık takvim tabanlı bir kayıt sistemiyle izlenir. Her geliştirme günü ayrı bir sürüm kaydıdır; geçmiş tarihler her zaman açılabilir ve sonraki günler aynı yapıya eklenebilir.",
-    month:"Eylül 2026",week:["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"],legend:"Güncelleme bulunan gün",record:"Günlük Sürüm Kaydı",
-    releaseTitle:"23 Eylül 2026 · Onaylı Sistem Güncellemeleri",releaseText:"Bu kayıt, 23 Eylül 2026 tarihinde EMRINA Masar Makkah sistemi üzerinde tamamlanan ve onaylanan geliştirmeleri içerir.",
+    heroTitle:"Sistem Güncelleme Takvimi",month:"Eylül 2026",week:["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"],legend:"Güncelleme bulunan gün",record:"Günlük Sürüm Kaydı",
+    releaseTitle:"14 Eylül 2026 · Operasyonel Sistem Temelinin Kurulması",
+    releaseText:"Bu kayıt, EMRINA / Masar Makkah sisteminin ilk operasyonel yapıya dönüştürüldüğü geliştirme gününü kapsar.",
+    heroText:"EMRINA geliştirmeleri tarih bazlı olarak arşivlenir. Her geliştirme günü ayrı bir sürüm kaydıdır; böylece sistemin ilk aşamasından güncel sürüme kadar gelişim geçmişi izlenebilir.",
     all:"Tüm Güncellemeler",search:"Güncellemelerde ara…",updates:"Güncelleme",areas:"Alan",reference:"Onaylı referans sürüm",
+    workHours:"Tahmini Toplam Çalışma Süresi",projectHours:"Toplam Tahmini Çalışma",developmentDays:"Geliştirme Günü",hoursUnit:"saat",
+    hoursNote:"Çalışma süresi, gerçek bir kronometre kaydı değil; geliştirilen kapsam, iş akışları, entegrasyon ve test yüküne göre hesaplanan tahmini mühendislik eforudur.",
+    cats:{system:"Sistem Mimarisi",unit:"Daire / Stok",sales:"Satış & Rezervasyon",finance:"Finans"},
+    items:[
+      ["system","Operasyonel Sistem Yapısının Kurulması",[
+        "147 dairelik mevcut stok ve fiyatlandırma altyapısı korunarak araç, operasyonel bir satış ve kontrol sistemine dönüştürüldü.",
+        "Dashboard, daireler, kule haritası, fiyatlandırma, CRM, rezervasyonlar, satışlar ve sözleşmeler, tahsilat ve alacaklar, muhasebe, giderler, satış ekibi, finansal analiz, tahminler, raporlar, belgeler, olay kaydı ve ayarlar için ana modüller oluşturuldu.",
+        "Sistemin daha sonraki geliştirmelere uygun tek bir operasyonel yapı altında çalışması hedeflendi."
+      ]],
+      ["unit","Daire Durumlarının ve Stok Akışının Oluşturulması",[
+        "Daireler için Müsait, Rezerve ve Satıldı durumları tanımlandı.",
+        "Rezervasyon, rezervasyonu kaldırma ve satış işlemleri stok durumuyla ilişkilendirildi.",
+        "Mevcut 147 dairenin orijinal fiyatlandırma ve envanter verilerinin korunmasına dikkat edildi."
+      ]],
+      ["sales","Müşteri, Rezervasyon ve Satış İş Akışının Kurulması",[
+        "Müşteri, rezervasyon, satış, sözleşme, ödeme ve tahsilat kayıtlarının birbirine bağlı çalışması için temel süreç oluşturuldu.",
+        "Rezervasyon ve satış işlemlerinin daire durumuna doğrudan yansıması sağlandı."
+      ]],
+      ["finance","Finansal Takibin Temelinin Kurulması",[
+        "Sözleşme değeri, tahsil edilen tutar ve muhasebesel gelir kavramları birbirinden ayrıldı.",
+        "Alacakların, tahsilatların ve temel finansal göstergelerin operasyonel olarak takip edilebilmesi için altyapı oluşturuldu."
+      ]]
+    ]
+  },
+  ar:{
+    heroTitle:"تقويم تحديثات النظام",month:"سبتمبر 2026",week:["اثن","ثلا","أرب","خمي","جمع","سبت","أحد"],legend:"يوم يحتوي على تحديثات",record:"سجل الإصدار اليومي",
+    releaseTitle:"14 سبتمبر 2026 · تأسيس الهيكل التشغيلي للنظام",
+    releaseText:"يتضمن هذا السجل يوم بدء تحويل EMRINA / مشروع مسار مكة إلى نظام تشغيلي متكامل للمبيعات والإدارة.",
+    heroText:"يتم أرشفة تطوير نظام EMRINA حسب التاريخ. كل يوم تطوير يظهر كسجل مستقل، مما يتيح تتبع تطور النظام منذ مراحله الأولى وحتى النسخة الحالية.",
+    all:"جميع التحديثات",search:"ابحث داخل تحديثات اليوم…",updates:"تحديث",areas:"مجال",reference:"النسخة المرجعية المعتمدة",
+    workHours:"إجمالي ساعات العمل التقديرية",projectHours:"إجمالي الساعات التقديرية",developmentDays:"أيام التطوير",hoursUnit:"ساعة",
+    hoursNote:"ساعات العمل تقدير هندسي لحجم التطوير والربط والاختبار، وليست سجل توقيت فعلي بالدقيقة.",
+    cats:{system:"هيكل النظام",unit:"الوحدات والمخزون",sales:"المبيعات والحجوزات",finance:"المالية"},
+    items:[
+      ["system","تأسيس الهيكل التشغيلي للنظام",[
+        "تم تحويل الأداة إلى نظام مبيعات وتحكم تشغيلي مع المحافظة على مخزون وتسعير 147 وحدة.",
+        "تم إنشاء الأقسام الأساسية: لوحة المعلومات، الوحدات، خريطة البرج، التسعير، CRM، الحجوزات، المبيعات والعقود، التحصيل والذمم، المحاسبة، المصاريف، فريق المبيعات، التحليل المالي، التوقعات، التقارير، المستندات، سجل الأحداث والإعدادات.",
+        "تم تأسيس هيكل موحد يسمح بتطوير النظام لاحقًا دون فصل العمليات عن بعضها."
+      ]],
+      ["unit","تأسيس حالات الوحدات ودورة المخزون",[
+        "تم اعتماد حالات الوحدات: متاح، محجوز، مباع.",
+        "تم ربط الحجز وفك الحجز والبيع بحالة الوحدة داخل المخزون.",
+        "تم الحفاظ على بيانات الوحدات والتسعير الأصلية لـ147 وحدة."
+      ]],
+      ["sales","تأسيس دورة العملاء والحجوزات والمبيعات",[
+        "تم إنشاء الأساس لربط العملاء بالحجوزات والمبيعات والعقود والدفعات والإيصالات.",
+        "أصبحت حركة الحجز والبيع تنعكس مباشرة على حالة الوحدة."
+      ]],
+      ["finance","تأسيس الرقابة المالية الأساسية",[
+        "تم الفصل بين قيمة العقود، المبالغ المحصلة، والإيراد المحاسبي.",
+        "تم إنشاء أساس متابعة الذمم والتحصيلات والمؤشرات المالية التشغيلية."
+      ]]
+    ]
+  }
+},
+"2026-09-16":{
+  hours:8,
+  tr:{
+    heroTitle:"Sistem Güncelleme Takvimi",month:"Eylül 2026",week:["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"],legend:"Güncelleme bulunan gün",record:"Günlük Sürüm Kaydı",
+    releaseTitle:"16 Eylül 2026 · Daire Seçim ve Fiyatlandırma Aracının Geliştirilmesi",
+    releaseText:"Bu kayıt, Emra için bağımsız kule daire seçim ve fiyatlandırma aracının yoğun olarak geliştirildiği günü kapsar.",
+    heroText:"Geliştirme kayıtları tarihe göre saklanır; her günün kapsamı ve tahmini toplam çalışma süresi ayrı olarak gösterilir.",
+    all:"Tüm Güncellemeler",search:"Güncellemelerde ara…",updates:"Güncelleme",areas:"Alan",reference:"Onaylı referans sürüm",
+    workHours:"Tahmini Toplam Çalışma Süresi",projectHours:"Toplam Tahmini Çalışma",developmentDays:"Geliştirme Günü",hoursUnit:"saat",
+    hoursNote:"Çalışma süresi, gerçek bir kronometre kaydı değil; geliştirilen kapsam, iş akışları, entegrasyon ve test yüküne göre hesaplanan tahmini mühendislik eforudur.",
+    cats:{pricing:"Fiyatlandırma",unit:"Daire Seçimi",ux:"Arayüz",version:"Sürüm Yönetimi"},
+    items:[
+      ["pricing","Bağımsız Daire Seçim ve Fiyatlandırma Aracının Oluşturulması",[
+        "147 daire için bağımsız seçim ve fiyatlandırma aracı geliştirildi.",
+        "Araç; 3–13 ve 15–20. katlardaki daireleri paket bazında seçip analiz edebilecek yapıya getirildi.",
+        "Seçilen paket için toplam değer ve ağırlıklı ortalama m² fiyatı hesaplanabilir hâle getirildi."
+      ]],
+      ["unit","Esnek Paket ve Daire Seçimi",[
+        "Ardışık katlar, birbirinden bağımsız katlar veya tek tek daireler seçilebilir hâle getirildi.",
+        "Farklı katlardan dağınık daireler seçilerek tek paket altında analiz edilebiliyor."
+      ]],
+      ["ux","Kule Haritası ve Fiyatlandırma Arayüzünün Geliştirilmesi",[
+        "Kulenin tamamını gösteren seçim haritası geliştirildi.",
+        "Fiyatlandırma varsayımları ve seçilen daire detayları aynı çalışma alanında bir araya getirildi.",
+        "Detay tablosu tam genişlikte daha okunaklı hâle getirildi ve arayüz koyu kurumsal stile taşındı."
+      ]],
+      ["version","İsimlendirme ve Sürüm Standardizasyonu",[
+        "Araç için İngilizce isimlendirme standardı benimsendi: Makkah Tower Unit Selector & Pricing — Emra.",
+        "Geliştirme iterasyonları V1.0'dan ilerletildi ve V1.9 numarası korunacak referans sürüm olarak benimsendi."
+      ]]
+    ]
+  },
+  ar:{
+    heroTitle:"تقويم تحديثات النظام",month:"سبتمبر 2026",week:["اثن","ثلا","أرب","خمي","جمع","سبت","أحد"],legend:"يوم يحتوي على تحديثات",record:"سجل الإصدار اليومي",
+    releaseTitle:"16 سبتمبر 2026 · تطوير أداة اختيار وتسعير الوحدات",
+    releaseText:"يتضمن هذا السجل تطوير أداة مستقلة لاختيار وتسعير وحدات البرج لصالح Emra.",
+    heroText:"يتم حفظ سجل التطوير حسب التاريخ، مع عرض نطاق العمل وإجمالي ساعات العمل التقديرية لكل يوم بشكل مستقل.",
+    all:"جميع التحديثات",search:"ابحث داخل تحديثات اليوم…",updates:"تحديث",areas:"مجال",reference:"النسخة المرجعية المعتمدة",
+    workHours:"إجمالي ساعات العمل التقديرية",projectHours:"إجمالي الساعات التقديرية",developmentDays:"أيام التطوير",hoursUnit:"ساعة",
+    hoursNote:"ساعات العمل تقدير هندسي لحجم التطوير والربط والاختبار، وليست سجل توقيت فعلي بالدقيقة.",
+    cats:{pricing:"التسعير",unit:"اختيار الوحدات",ux:"الواجهة",version:"الإصدارات"},
+    items:[
+      ["pricing","إنشاء أداة مستقلة لاختيار وتسعير الوحدات",[
+        "تم تطوير أداة مستقلة لاختيار وتسعير 147 وحدة في البرج.",
+        "تم تجهيز الأداة للتعامل مع الوحدات الواقعة في الأدوار 3–13 و15–20 ضمن حزم استثمارية.",
+        "أصبحت الأداة تحسب إجمالي قيمة الحزمة ومتوسط سعر المتر المرجح للوحدات المختارة."
+      ]],
+      ["unit","تطوير اختيار الحزم والوحدات بشكل مرن",[
+        "إمكانية اختيار أدوار متتالية أو أدوار متفرقة.",
+        "إمكانية اختيار وحدات منفردة ومتفرقة من أدوار مختلفة واحتسابها ضمن حزمة واحدة."
+      ]],
+      ["ux","تطوير خريطة البرج وواجهة التسعير",[
+        "إضافة خريطة كاملة للبرج لاختيار الوحدات بصريًا.",
+        "جمع افتراضات التسعير وتفاصيل الوحدات المختارة في مساحة عمل واحدة.",
+        "توسيع جدول تفاصيل الوحدات واعتماد واجهة داكنة أكثر احترافية."
+      ]],
+      ["version","اعتماد الاسم والإصدار المرجعي",[
+        "تم اعتماد الاسم الإنجليزي: Makkah Tower Unit Selector & Pricing — Emra.",
+        "تم تطوير الإصدارات تدريجيًا من V1.0 وصولًا إلى اعتماد V1.9 كرقم مرجعي للأداة."
+      ]]
+    ]
+  }
+},
+"2026-09-17":{
+  hours:3,
+  tr:{
+    heroTitle:"Sistem Güncelleme Takvimi",month:"Eylül 2026",week:["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"],legend:"Güncelleme bulunan gün",record:"Günlük Sürüm Kaydı",
+    releaseTitle:"17 Eylül 2026 · Web Yayını ve Güncelleme Akışının Hazırlanması",
+    releaseText:"Bu kayıt, fiyatlandırma aracının sabit bir web bağlantısı üzerinden kullanılabilmesi için yapılan yayın hazırlıklarını kapsar.",
+    heroText:"Geliştirme kayıtları tarihe göre saklanır; her günün kapsamı ve tahmini toplam çalışma süresi ayrı olarak gösterilir.",
+    all:"Tüm Güncellemeler",search:"Güncellemelerde ara…",updates:"Güncelleme",areas:"Alan",reference:"Onaylı referans sürüm",
+    workHours:"Tahmini Toplam Çalışma Süresi",projectHours:"Toplam Tahmini Çalışma",developmentDays:"Geliştirme Günü",hoursUnit:"saat",
+    hoursNote:"Çalışma süresi, gerçek bir kronometre kaydı değil; geliştirilen kapsam, iş akışları, entegrasyon ve test yüküne göre hesaplanan tahmini mühendislik eforudur.",
+    cats:{deployment:"Web Yayını",workflow:"Güncelleme Süreci"},
+    items:[
+      ["deployment","GitHub Pages Üzerinden Web Yayınına Hazırlık",[
+        "Aracın tek bir index.html dosyası olarak yayınlanabileceği yapı benimsendi.",
+        "GitHub Pages için main dalı ve /(root) klasörü üzerinden yayın akışı yapılandırıldı.",
+        "Sistemin sabit bir web bağlantısından açılabilmesi hedeflendi."
+      ]],
+      ["workflow","Sabit Bağlantı Üzerinden Güncelleme Sürecinin Tanımlanması",[
+        "Daha sonraki sürümlerde aynı bağlantının korunması için index.html dosyasının değiştirilip Commit edilmesi yöntemi benimsendi.",
+        "Böylece yeni sürümler aynı adres üzerinden yayınlanabilir hâle getirildi."
+      ]]
+    ]
+  },
+  ar:{
+    heroTitle:"تقويم تحديثات النظام",month:"سبتمبر 2026",week:["اثن","ثلا","أرب","خمي","جمع","سبت","أحد"],legend:"يوم يحتوي على تحديثات",record:"سجل الإصدار اليومي",
+    releaseTitle:"17 سبتمبر 2026 · تجهيز النشر الإلكتروني وآلية التحديث",
+    releaseText:"يتضمن هذا السجل تجهيز أداة التسعير للعمل من خلال رابط ويب ثابت وآلية واضحة لنشر التحديثات اللاحقة.",
+    heroText:"يتم حفظ سجل التطوير حسب التاريخ، مع عرض نطاق العمل وإجمالي ساعات العمل التقديرية لكل يوم بشكل مستقل.",
+    all:"جميع التحديثات",search:"ابحث داخل تحديثات اليوم…",updates:"تحديث",areas:"مجال",reference:"النسخة المرجعية المعتمدة",
+    workHours:"إجمالي ساعات العمل التقديرية",projectHours:"إجمالي الساعات التقديرية",developmentDays:"أيام التطوير",hoursUnit:"ساعة",
+    hoursNote:"ساعات العمل تقدير هندسي لحجم التطوير والربط والاختبار، وليست سجل توقيت فعلي بالدقيقة.",
+    cats:{deployment:"النشر الإلكتروني",workflow:"آلية التحديث"},
+    items:[
+      ["deployment","تجهيز النشر من خلال GitHub Pages",[
+        "تم اعتماد إمكانية نشر الأداة من خلال ملف واحد باسم index.html بدون الحاجة إلى مجلدات إضافية.",
+        "تم إعداد مسار النشر عبر الفرع main والمجلد /(root) في GitHub Pages.",
+        "تم تجهيز الأداة لتعمل من خلال رابط ويب ثابت."
+      ]],
+      ["workflow","تحديد آلية تحديث الموقع مع الحفاظ على نفس الرابط",[
+        "تم اعتماد استبدال ملف index.html ثم تنفيذ Commit عند إصدار أي تحديث جديد.",
+        "بهذه الطريقة يمكن رفع الإصدارات الجديدة مع استمرار استخدام نفس رابط الموقع."
+      ]]
+    ]
+  }
+},
+"2026-09-20":{
+  hours:13,
+  tr:{
+    heroTitle:"Sistem Güncelleme Takvimi",month:"Eylül 2026",week:["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"],legend:"Güncelleme bulunan gün",record:"Günlük Sürüm Kaydı",
+    releaseTitle:"20 Eylül 2026 · Fiyatlandırma Aracından Satış Sistemine Geçiş",
+    releaseText:"Bu kayıt, bağımsız fiyatlandırma aracının rezervasyon, satış, CRM, finans ve belge süreçleriyle daha kapsamlı bir EMRINA satış sistemine dönüştürüldüğü geliştirmeleri kapsar.",
+    heroText:"Geliştirme kayıtları tarihe göre saklanır; her günün kapsamı ve tahmini toplam çalışma süresi ayrı olarak gösterilir.",
+    all:"Tüm Güncellemeler",search:"Güncellemelerde ara…",updates:"Güncelleme",areas:"Alan",reference:"Onaylı referans sürüm",
+    workHours:"Tahmini Toplam Çalışma Süresi",projectHours:"Toplam Tahmini Çalışma",developmentDays:"Geliştirme Günü",hoursUnit:"saat",
+    hoursNote:"Çalışma süresi, gerçek bir kronometre kaydı değil; geliştirilen kapsam, iş akışları, entegrasyon ve test yüküne göre hesaplanan tahmini mühendislik eforudur.",
+    cats:{unit:"Daire Verisi",sales:"Rezervasyon & Satış",system:"Sistem Yapısı",finance:"Finans",access:"Erişim"},
+    items:[
+      ["unit","V1.9 Daire Alan Verilerinin Güncellenmesi",[
+        "Daire alanları 1BR=60 m², 2BR=90 m² ve 3BR=120 m² olarak güncellendi.",
+        "147 daire için toplam iç alan 13.770 m² ve teras alanı 1.805 m² olarak sisteme yansıtıldı."
+      ]],
+      ["sales","Rezervasyon ve Satış Sürecinin Oluşturulması",[
+        "147 dairelik harita üzerinde Müsait, Rezerve ve Satıldı durumlarıyla rezervasyon/satış akışı oluşturuldu.",
+        "Rezervasyon işlemine kapora, ödeme yöntemi ve rezervasyon belgesi eklendi.",
+        "Rezervasyonun doğrudan satışa dönüştürülmesi, ödeme planı ve satış sözleşmesi akışı eklendi."
+      ]],
+      ["system","EMRINA Masar Sales Suite'e Yeniden Yapılandırma",[
+        "Sistem; yatay navigasyonlu Sales Floor, CRM, Finance ve Documents çalışma alanlarıyla yeniden düzenlendi.",
+        "Satış ve rezervasyon belgelerinin çok dilli kullanımına uygun altyapı oluşturuldu."
+      ]],
+      ["finance","Fiyatlandırma Çalışma Alanı ve Alacak Takibinin Geliştirilmesi",[
+        "Fiyatlandırma senaryolarının detaylı ve yazdırılabilir şekilde görüntülenmesi geliştirildi.",
+        "Ödemesi tamamlanmamış sözleşmeler için alacaklar / receivables takibi eklendi."
+      ]],
+      ["access","Rizq Tarzı Giriş Ekranının Eklenmesi",[
+        "Kule görselini kullanan kurumsal giriş ekranı eklendi.",
+        "Kullanıcı adı ve parola ile giriş akışı oluşturuldu; mevcut aşamada bunun istemci tarafı erişim kapısı olduğu açıkça korundu."
+      ]]
+    ]
+  },
+  ar:{
+    heroTitle:"تقويم تحديثات النظام",month:"سبتمبر 2026",week:["اثن","ثلا","أرب","خمي","جمع","سبت","أحد"],legend:"يوم يحتوي على تحديثات",record:"سجل الإصدار اليومي",
+    releaseTitle:"20 سبتمبر 2026 · الانتقال من أداة التسعير إلى نظام المبيعات",
+    releaseText:"يتضمن هذا السجل التوسع من أداة اختيار وتسعير مستقلة إلى نظام EMRINA أكثر شمولًا للحجوزات والمبيعات والعملاء والمالية والمستندات.",
+    heroText:"يتم حفظ سجل التطوير حسب التاريخ، مع عرض نطاق العمل وإجمالي ساعات العمل التقديرية لكل يوم بشكل مستقل.",
+    all:"جميع التحديثات",search:"ابحث داخل تحديثات اليوم…",updates:"تحديث",areas:"مجال",reference:"النسخة المرجعية المعتمدة",
+    workHours:"إجمالي ساعات العمل التقديرية",projectHours:"إجمالي الساعات التقديرية",developmentDays:"أيام التطوير",hoursUnit:"ساعة",
+    hoursNote:"ساعات العمل تقدير هندسي لحجم التطوير والربط والاختبار، وليست سجل توقيت فعلي بالدقيقة.",
+    cats:{unit:"بيانات الوحدات",sales:"الحجوزات والمبيعات",system:"هيكل النظام",finance:"المالية",access:"الدخول"},
+    items:[
+      ["unit","تحديث بيانات المساحات في V1.9",[
+        "تم تحديث المساحات إلى 1BR = 60 م²، 2BR = 90 م²، و3BR = 120 م².",
+        "تم اعتماد إجمالي مساحة داخلية 13,770 م² ومساحات تراسات 1,805 م² لـ147 وحدة."
+      ]],
+      ["sales","إنشاء دورة الحجوزات والمبيعات",[
+        "تم إنشاء دورة حجز وبيع على خريطة 147 وحدة مع حالات متاح، محجوز، ومباع.",
+        "تم إضافة العربون وطريقة الدفع ووثيقة الحجز ضمن عملية الحجز.",
+        "تمت إضافة التحويل المباشر من الحجز إلى البيع مع خطة سداد وعقد بيع."
+      ]],
+      ["system","إعادة بناء النظام كـ EMRINA Masar Sales Suite",[
+        "تم تنظيم النظام بقائمة أفقية ومساحات عمل تشمل Sales Floor وCRM وFinance وDocuments.",
+        "تم تجهيز عقود ووثائق النظام للاستخدام متعدد اللغات."
+      ]],
+      ["finance","تطوير مساحة التسعير والذمم المدينة",[
+        "تم تطوير عرض تفاصيل نماذج التسعير بطريقة أوضح وقابلة للطباعة.",
+        "تمت إضافة متابعة الذمم المدينة للعقود التي لم يكتمل سدادها."
+      ]],
+      ["access","إضافة شاشة دخول بطابع Rizq",[
+        "تم إضافة شاشة دخول مؤسسية تتضمن صورة البرج المعتمدة.",
+        "تم إنشاء دخول باسم مستخدم وكلمة مرور، مع بقاء هذه المرحلة كحماية واجهة على جهة العميل."
+      ]]
+    ]
+  }
+},
+"2026-09-23":{
+  hours:18,
+  tr:{
+    heroTitle:"Sistem Güncelleme Takvimi",month:"Eylül 2026",week:["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"],legend:"Güncelleme bulunan gün",record:"Günlük Sürüm Kaydı",
+    releaseTitle:"23 Eylül 2026 · Onaylı Sistem Güncellemeleri",
+    releaseText:"Bu kayıt, 23 Eylül 2026 tarihinde EMRINA Masar Makkah sistemi üzerinde tamamlanan ve onaylanan geliştirmeleri içerir.",
+    heroText:"EMRINA geliştirmeleri artık takvim tabanlı bir kayıt sistemiyle izlenir. Her geliştirme günü ayrı bir sürüm kaydıdır; geçmiş tarihler her zaman açılabilir ve sonraki günler aynı yapıya eklenebilir.",
+    all:"Tüm Güncellemeler",search:"Güncellemelerde ara…",updates:"Güncelleme",areas:"Alan",reference:"Onaylı referans sürüm",
+    workHours:"Tahmini Toplam Çalışma Süresi",projectHours:"Toplam Tahmini Çalışma",developmentDays:"Geliştirme Günü",hoursUnit:"saat",
+    hoursNote:"Çalışma süresi, gerçek bir kronometre kaydı değil; geliştirilen kapsam, iş akışları, entegrasyon ve test yüküne göre hesaplanan tahmini mühendislik eforudur.",
     cats:{crm:"Müşteri Yönetimi",unit:"Daire / Arayüz",finance:"Finans",contract:"Rezervasyon & Sözleşme",governance:"Yönetim & Yetki",audit:"Denetim"},
     items:[
       ["crm","Müşteri Yönetiminin Geliştirilmesi",["Her müşteri için kimlik kartı veya pasaport kopyası yükleme imkânı eklendi.","Müşteriler sayfasına geçmeye gerek kalmadan rezervasyon veya satış ekranından doğrudan yeni müşteri eklenebiliyor.","Yeni müşteri otomatik olarak müşteri veritabanına ekleniyor ve ilgili işlem içinde hemen kullanılabilir hâle geliyor.","Kimlik/pasaport numarası veya cep telefonu numarası üzerinden mükerrer müşteri kaydını önleyen kontrol eklendi."]],
@@ -201,11 +464,13 @@ const DATA={
     ]
   },
   ar:{
-    heroTitle:"تقويم تحديثات النظام",
+    heroTitle:"تقويم تحديثات النظام",month:"سبتمبر 2026",week:["اثن","ثلا","أرب","خمي","جمع","سبت","أحد"],legend:"يوم يحتوي على تحديثات",record:"سجل الإصدار اليومي",
+    releaseTitle:"23 سبتمبر 2026 · تحديثات النظام المعتمدة",
+    releaseText:"يتضمن هذا السجل جميع التحديثات التي تم تنفيذها واعتمادها على نظام EMRINA لمشروع مسار مكة بتاريخ 23 سبتمبر 2026.",
     heroText:"أصبحت تحديثات EMRINA منظمة كسجل زمني يعتمد على التاريخ. كل يوم تطوير يظهر كسجل مستقل يمكن الرجوع إليه لاحقًا، ويمكن إضافة تحديثات الأيام القادمة مع الاحتفاظ الكامل بسجل الأيام السابقة.",
-    month:"سبتمبر 2026",week:["اثن","ثلا","أرب","خمي","جمع","سبت","أحد"],legend:"يوم يحتوي على تحديثات",record:"سجل الإصدار اليومي",
-    releaseTitle:"23 سبتمبر 2026 · تحديثات النظام المعتمدة",releaseText:"يتضمن هذا السجل جميع التحديثات التي تم تنفيذها واعتمادها على نظام EMRINA لمشروع مسار مكة بتاريخ 23 سبتمبر 2026.",
     all:"جميع التحديثات",search:"ابحث داخل تحديثات اليوم…",updates:"تحديث",areas:"مجال",reference:"النسخة المرجعية المعتمدة",
+    workHours:"إجمالي ساعات العمل التقديرية",projectHours:"إجمالي الساعات التقديرية",developmentDays:"أيام التطوير",hoursUnit:"ساعة",
+    hoursNote:"ساعات العمل تقدير هندسي لحجم التطوير والربط والاختبار، وليست سجل توقيت فعلي بالدقيقة.",
     cats:{crm:"إدارة العملاء",unit:"الوحدات / الواجهة",finance:"المالية",contract:"الحجوزات والعقود",governance:"الإدارة والصلاحيات",audit:"التدقيق"},
     items:[
       ["crm","تطوير إدارة العملاء",["إضافة إمكانية رفع صورة الهوية أو جواز السفر لكل عميل.","إمكانية إضافة عميل جديد مباشرة من شاشة الحجز أو البيع بدون الحاجة للانتقال إلى صفحة العملاء.","العميل الجديد يضاف تلقائيًا إلى قاعدة العملاء ويصبح متاحًا مباشرة داخل المعاملة.","إضافة فحص لمنع تكرار العميل باستخدام رقم الهوية/الجواز أو رقم الجوال."]],
@@ -221,86 +486,104 @@ const DATA={
       ["audit","إضافة سجل تدقيق Audit Trail",["تسجيل العمليات المهمة داخل النظام مثل: إنشاء أو تعديل التحصيلات، الإلغاءات، تمديد الحجوزات، تعديل المستخدمين والصلاحيات، فتح المرفقات، وتغييرات الإعدادات.","الهدف هو رفع مستوى الرقابة والشفافية قبل الانتقال إلى نسخة السيرفر."]]
     ]
   }
-};
-const reference="EMRINA_Masar_Sales_Suite_ControlCenter_Permissions.html";
-const RELEASES={
-  "2026-09-23":DATA,
-  "2026-09-24":{
-    tr:{...DATA.tr,
-      releaseTitle:"24 Eylül 2026 · Onaylı Sistem Güncellemeleri",
-      releaseText:"Bu kayıt, 24 Eylül 2026 tarihinde EMRINA Masar Makkah sistemi üzerinde tamamlanan ve onaylanan belge, rakam standardı ve elektronik imza geliştirmelerini içerir.",
-      cats:{...DATA.tr.cats,system:"Sistem Standardı"},
-      items:[
-        ["system","Sistem Genelinde İngilizce Rakam Standardı",[
-          "Sistem genelindeki tüm sayısal değerler 0–9 Latin/İngilizce rakamlarıyla standardize edildi.",
-          "Arayüz dili Arapça, Türkçe veya İngilizce olsa da tutarlar, yüzdeler, kat numaraları, tarih/saat gösterimleri ve diğer sayısal değerler İngilizce rakamlarla görüntülenir.",
-          "Kullanıcı tarafından Arapça veya Farsça rakamlarla girilen sayısal karakterler de otomatik olarak İngilizce rakamlara dönüştürülür."
-        ]],
-        ["contract","Sözleşme ve Rezervasyon Belgelerinde Varsayılan Türkçe",[
-          "Satış sözleşmesi veya rezervasyon sözleşmesi açıldığında belge, sistem arayüzünün aktif dilinden bağımsız olarak varsayılan biçimde Türkçe gösterilir.",
-          "Kullanıcı isterse belge dili seçiminden Arapça veya Arapça + Türkçe görünümüne geçebilir.",
-          "Belge önizlemesi ve yazdırma işlemi seçilen belge diline göre gerçekleştirilir."
-        ]],
-        ["contract","Elektronik İmza Sisteminin Geliştirilmesi",[
-          "Elektronik imza ekranına, imzayı ekranda çizmenin yanında mevcut imza görselini yükleme seçeneği eklendi.",
-          "İmza görseli PNG, JPG/JPEG veya WEBP biçimlerinde yüklenebilir ve dosya boyutu kontrol edilir.",
-          "Çizim modu fare, parmak ve elektronik kalem ile çalışır; iPad ve dokunmatik ekranlı bilgisayarlarda doğrudan ekrana imza atılabilir.",
-          "Sistem, çizilmiş veya yüklenmiş imzayı aynı sözleşme imza kaydına bağlar ve imzanın kaynağını denetim verisine kaydeder."
-        ]]
-      ]
-    },
-    ar:{...DATA.ar,
-      releaseTitle:"24 سبتمبر 2026 · تحديثات النظام المعتمدة",
-      releaseText:"يتضمن هذا السجل التحديثات التي تم تنفيذها واعتمادها بتاريخ 24 سبتمبر 2026 على نظام EMRINA لمشروع مسار مكة، والمتعلقة بتوحيد الأرقام، لغة العقود، وتطوير التوقيع الإلكتروني.",
-      cats:{...DATA.ar.cats,system:"معايير النظام"},
-      items:[
-        ["system","توحيد الأرقام الإنجليزية في كامل النظام",[
-          "تم توحيد جميع القيم الرقمية في النظام لتظهر باستخدام الأرقام الإنجليزية 0–9 فقط.",
-          "بغض النظر عن لغة واجهة النظام، تظهر المبالغ والنسب وأرقام الأدوار والتواريخ والأوقات وأي قيم رقمية أخرى بالأرقام الإنجليزية.",
-          "إذا قام المستخدم بإدخال أرقام عربية أو فارسية، يتم تحويلها تلقائيًا إلى أرقام إنجليزية داخل النظام."
-        ]],
-        ["contract","اعتماد اللغة التركية افتراضيًا للعقود واتفاقيات الحجز",[
-          "عند فتح عقد البيع أو اتفاقية الحجز، تظهر الوثيقة تلقائيًا باللغة التركية بغض النظر عن اللغة المستخدمة حاليًا في واجهة النظام.",
-          "يمكن للمستخدم تغيير لغة الوثيقة عند الحاجة إلى العربية أو إلى العرض الثنائي العربية + التركية.",
-          "تتم معاينة الوثيقة وطباعتها حسب اللغة التي يختارها المستخدم."
-        ]],
-        ["contract","تطوير نظام التوقيع الإلكتروني",[
-          "تمت إضافة خيار رفع صورة توقيع جاهزة إلى جانب خيار رسم التوقيع على الشاشة.",
-          "يمكن رفع صورة التوقيع بصيغ PNG أو JPG/JPEG أو WEBP مع التحقق من حجم الملف.",
-          "أصبح رسم التوقيع يدعم الماوس والإصبع والقلم الإلكتروني، بما يسمح بالتوقيع مباشرة على شاشة iPad أو أجهزة الكمبيوتر المزودة بشاشة لمس.",
-          "يتم ربط التوقيع المرسوم أو المرفوع بنفس سجل توقيع العقد، مع تسجيل مصدر التوقيع ضمن بيانات التدقيق."
-        ]]
-      ]
-    }
+},
+"2026-09-24":{
+  hours:6,
+  tr:{
+    heroTitle:"Sistem Güncelleme Takvimi",month:"Eylül 2026",week:["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"],legend:"Güncelleme bulunan gün",record:"Günlük Sürüm Kaydı",
+    releaseTitle:"24 Eylül 2026 · Onaylı Sistem Güncellemeleri",
+    releaseText:"Bu kayıt, 24 Eylül 2026 tarihinde EMRINA Masar Makkah sistemi üzerinde tamamlanan ve onaylanan belge, rakam standardı ve elektronik imza geliştirmelerini içerir.",
+    heroText:"EMRINA geliştirmeleri artık takvim tabanlı bir kayıt sistemiyle izlenir. Her geliştirme günü ayrı bir sürüm kaydıdır; geçmiş tarihler her zaman açılabilir ve sonraki günler aynı yapıya eklenebilir.",
+    all:"Tüm Güncellemeler",search:"Güncellemelerde ara…",updates:"Güncelleme",areas:"Alan",reference:"Onaylı referans sürüm",
+    workHours:"Tahmini Toplam Çalışma Süresi",projectHours:"Toplam Tahmini Çalışma",developmentDays:"Geliştirme Günü",hoursUnit:"saat",
+    hoursNote:"Çalışma süresi, gerçek bir kronometre kaydı değil; geliştirilen kapsam, iş akışları, entegrasyon ve test yüküne göre hesaplanan tahmini mühendislik eforudur.",
+    cats:{system:"Sistem Standardı",contract:"Rezervasyon & Sözleşme"},
+    items:[
+      ["system","Sistem Genelinde İngilizce Rakam Standardı",[
+        "Sistem genelindeki tüm sayısal değerler 0–9 Latin/İngilizce rakamlarıyla standardize edildi.",
+        "Arayüz dili Arapça, Türkçe veya İngilizce olsa da tutarlar, yüzdeler, kat numaraları, tarih/saat gösterimleri ve diğer sayısal değerler İngilizce rakamlarla görüntülenir.",
+        "Kullanıcı tarafından Arapça veya Farsça rakamlarla girilen sayısal karakterler de otomatik olarak İngilizce rakamlara dönüştürülür."
+      ]],
+      ["contract","Sözleşme ve Rezervasyon Belgelerinde Varsayılan Türkçe",[
+        "Satış sözleşmesi veya rezervasyon sözleşmesi açıldığında belge, sistem arayüzünün aktif dilinden bağımsız olarak varsayılan biçimde Türkçe gösterilir.",
+        "Kullanıcı isterse belge dili seçiminden Arapça veya Arapça + Türkçe görünümüne geçebilir.",
+        "Belge önizlemesi ve yazdırma işlemi seçilen belge diline göre gerçekleştirilir."
+      ]],
+      ["contract","Elektronik İmza Sisteminin Geliştirilmesi",[
+        "Elektronik imza ekranına, imzayı ekranda çizmenin yanında mevcut imza görselini yükleme seçeneği eklendi.",
+        "İmza görseli PNG, JPG/JPEG veya WEBP biçimlerinde yüklenebilir ve dosya boyutu kontrol edilir.",
+        "Çizim modu fare, parmak ve elektronik kalem ile çalışır; iPad ve dokunmatik ekranlı bilgisayarlarda doğrudan ekrana imza atılabilir.",
+        "Sistem, çizilmiş veya yüklenmiş imzayı aynı sözleşme imza kaydına bağlar ve imzanın kaynağını denetim verisine kaydeder."
+      ]]
+    ]
+  },
+  ar:{
+    heroTitle:"تقويم تحديثات النظام",month:"سبتمبر 2026",week:["اثن","ثلا","أرب","خمي","جمع","سبت","أحد"],legend:"يوم يحتوي على تحديثات",record:"سجل الإصدار اليومي",
+    releaseTitle:"24 سبتمبر 2026 · تحديثات النظام المعتمدة",
+    releaseText:"يتضمن هذا السجل التحديثات التي تم تنفيذها واعتمادها بتاريخ 24 سبتمبر 2026 على نظام EMRINA لمشروع مسار مكة، والمتعلقة بتوحيد الأرقام، لغة العقود، وتطوير التوقيع الإلكتروني.",
+    heroText:"أصبحت تحديثات EMRINA منظمة كسجل زمني يعتمد على التاريخ. كل يوم تطوير يظهر كسجل مستقل يمكن الرجوع إليه لاحقًا، ويمكن إضافة تحديثات الأيام القادمة مع الاحتفاظ الكامل بسجل الأيام السابقة.",
+    all:"جميع التحديثات",search:"ابحث داخل تحديثات اليوم…",updates:"تحديث",areas:"مجال",reference:"النسخة المرجعية المعتمدة",
+    workHours:"إجمالي ساعات العمل التقديرية",projectHours:"إجمالي الساعات التقديرية",developmentDays:"أيام التطوير",hoursUnit:"ساعة",
+    hoursNote:"ساعات العمل تقدير هندسي لحجم التطوير والربط والاختبار، وليست سجل توقيت فعلي بالدقيقة.",
+    cats:{system:"معايير النظام",contract:"الحجوزات والعقود"},
+    items:[
+      ["system","توحيد الأرقام الإنجليزية في كامل النظام",[
+        "تم توحيد جميع القيم الرقمية في النظام لتظهر باستخدام الأرقام الإنجليزية 0–9 فقط.",
+        "بغض النظر عن لغة واجهة النظام، تظهر المبالغ والنسب وأرقام الأدوار والتواريخ والأوقات وأي قيم رقمية أخرى بالأرقام الإنجليزية.",
+        "إذا قام المستخدم بإدخال أرقام عربية أو فارسية، يتم تحويلها تلقائيًا إلى أرقام إنجليزية داخل النظام."
+      ]],
+      ["contract","اعتماد اللغة التركية افتراضيًا للعقود واتفاقيات الحجز",[
+        "عند فتح عقد البيع أو اتفاقية الحجز، تظهر الوثيقة تلقائيًا باللغة التركية بغض النظر عن اللغة المستخدمة حاليًا في واجهة النظام.",
+        "يمكن للمستخدم تغيير لغة الوثيقة عند الحاجة إلى العربية أو إلى العرض الثنائي العربية + التركية.",
+        "تتم معاينة الوثيقة وطباعتها حسب اللغة التي يختارها المستخدم."
+      ]],
+      ["contract","تطوير نظام التوقيع الإلكتروني",[
+        "تمت إضافة خيار رفع صورة توقيع جاهزة إلى جانب خيار رسم التوقيع على الشاشة.",
+        "يمكن رفع صورة التوقيع بصيغ PNG أو JPG/JPEG أو WEBP مع التحقق من حجم الملف.",
+        "أصبح رسم التوقيع يدعم الماوس والإصبع والقلم الإلكتروني، بما يسمح بالتوقيع مباشرة على شاشة iPad أو أجهزة الكمبيوتر المزودة بشاشة لمس.",
+        "يتم ربط التوقيع المرسوم أو المرفوع بنفس سجل توقيع العقد، مع تسجيل مصدر التوقيع ضمن بيانات التدقيق."
+      ]]
+    ]
   }
+}
 };
+
 let lang="tr",filter="all",q="",selectedDate=Object.keys(RELEASES).sort().reverse()[0];
+
 function e(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
 function setLang(v){lang=v;document.documentElement.lang=v;document.documentElement.dir=v==="ar"?"rtl":"ltr";document.getElementById("trBtn").classList.toggle("active",v==="tr");document.getElementById("arBtn").classList.toggle("active",v==="ar");render()}
 function setFilter(v){filter=v;render()}
 function setQ(v){q=(v||"").trim().toLowerCase();render()}
 function setReleaseDate(v){if(!RELEASES[v])return;selectedDate=v;filter="all";q="";render()}
-function releaseDateParts(){let [y,m,d]=selectedDate.split('-');return{y,m,d,display:`${d}.${m}.${y}`,day:Number(d)}}
+function releaseDateParts(){let [y,m,d]=selectedDate.split("-");return{y,m,d,display:`${d}.${m}.${y}`,day:Number(d)}}
+
 function calendarHTML(D){
  const blanks=1;let cells="";
  for(let i=0;i<blanks;i++)cells+=`<div class="day empty"></div>`;
  for(let d=1;d<=30;d++){
-   let key=`2026-09-${String(d).padStart(2,'0')}`,rel=RELEASES[key],count=rel?rel[lang].items.length:0;
-   cells+=`<div class="day ${rel?'release':''} ${key===selectedDate?'selected':''}" ${rel?`data-count="${count}" onclick="setReleaseDate('${key}')" title="${key}"`:''}>${d}</div>`;
+   let key=`2026-09-${String(d).padStart(2,"0")}`,rel=RELEASES[key],count=rel?rel[lang].items.length:0,h=rel?rel.hours:0;
+   cells+=`<div class="day ${rel?"release":""} ${key===selectedDate?"selected":""}" ${rel?`data-count="${count}" data-hours="${h}h" onclick="setReleaseDate('${key}')" title="${key} · ${h}h"`:""}>${d}</div>`;
  }
- return `<div class="weekdays">${D.week.map(x=>`<div>${e(x)}</div>`).join("")}</div><div class="calendar">${cells}</div>`
+ return `<div class="weekdays">${D.week.map(x=>`<div>${e(x)}</div>`).join("")}</div><div class="calendar">${cells}</div>`;
 }
+
 function render(){
- const D=RELEASES[selectedDate][lang],date=releaseDateParts(),counts={};D.items.forEach(x=>counts[x[0]]=(counts[x[0]]||0)+1);
+ const rel=RELEASES[selectedDate],D=rel[lang],date=releaseDateParts(),counts={};D.items.forEach(x=>counts[x[0]]=(counts[x[0]]||0)+1);
  const shown=D.items.map((x,i)=>({x,i})).filter(o=>(filter==="all"||o.x[0]===filter)&&(!q||(o.x[1]+" "+o.x[2].join(" ")).toLowerCase().includes(q)));
  const cats=[["all",D.all],...Object.entries(D.cats).filter(([k])=>counts[k])];
- const releaseIndex=Object.keys(RELEASES).sort().indexOf(selectedDate)+1;
+ const dates=Object.keys(RELEASES).sort(),releaseIndex=dates.indexOf(selectedDate)+1;
+ const totalMajor=dates.reduce((a,k)=>a+RELEASES[k][lang].items.length,0);
+
  document.getElementById("root").innerHTML=`<main class="main ${lang==="ar"?"ar":""}">
    <section class="intro">
      <div class="intro-copy" data-day="${date.d}">
        <div class="intro-topline"><div class="kicker">EMRINA · MASAR MAKKAH · ${e(D.record)}</div><div class="release-badge">${date.display}</div></div>
-       <div class="intro-main"><div class="intro-number">${String(releaseIndex).padStart(2,'0')}</div><div><h1>${e(D.heroTitle)}</h1><p>${e(D.heroText)}</p></div></div>
-       <div class="hero-stats"><div class="hero-stat"><span>${e(D.updates)}</span><b>${D.items.length}</b></div><div class="hero-stat"><span>${e(D.areas)}</span><b>${Object.keys(counts).length}</b></div><div class="hero-stat"><span>${e(D.record)}</span><b>${date.display}</b></div></div>
+       <div class="intro-main"><div class="intro-number">${String(releaseIndex).padStart(2,"0")}</div><div><h1>${e(D.heroTitle)}</h1><p>${e(D.heroText)}</p></div></div>
+       <div class="hero-stats">
+         <div class="hero-stat"><span>${e(D.updates)}</span><b>${D.items.length}</b></div>
+         <div class="hero-stat"><span>${e(D.areas)}</span><b>${Object.keys(counts).length}</b></div>
+         <div class="hero-stat"><span>${e(D.workHours)}</span><b>${rel.hours} ${e(D.hoursUnit)}</b></div>
+       </div>
      </div>
      <div class="month-panel">
        <div class="month-head"><div><span>RELEASE CALENDAR</span><b>${e(D.month)}</b></div><span>2026</span></div>
@@ -308,19 +591,27 @@ function render(){
        <div class="month-note"><i></i><span>${e(D.legend)}</span></div>
      </div>
    </section>
+
    <section class="release-layout">
      <aside class="release-index">
        <h3>${e(D.record)}</h3>
        <p>${e(D.releaseText)}</p>
        <div class="index-meta"><div><span>${e(D.updates)}</span><b>${D.items.length}</b></div><div><span>${e(D.areas)}</span><b>${Object.keys(counts).length}</b></div></div>
-       <div class="filter-list">${cats.map(([k,v])=>`<button class="filter-btn ${filter===k?"active":""}" onclick="setFilter('${k}')"><span class="left"><i class="dot"></i>${e(v)}</span><small>${k==="all"?D.items.length:(counts[k]||0)}</small></button>`).join("")}</div>
+       <div class="history-summary">
+         <div><span>${e(D.workHours)}</span><b>${rel.hours} ${e(D.hoursUnit)}</b></div>
+         <div><span>${e(D.projectHours)}</span><b>${REPORT_META.totalHours} ${e(D.hoursUnit)}</b></div>
+         <div><span>${e(D.developmentDays)}</span><b>${REPORT_META.developmentDays}</b></div>
+       </div>
+       <div class="hours-note">${e(D.hoursNote)}</div>
+       <div class="filter-list" style="margin-top:12px">${cats.map(([k,v])=>`<button class="filter-btn ${filter===k?"active":""}" onclick="setFilter('${k}')"><span class="left"><i class="dot"></i>${e(v)}</span><small>${k==="all"?D.items.length:(counts[k]||0)}</small></button>`).join("")}</div>
        <div class="searchbox"><span>⌕</span><input value="${e(q)}" oninput="setQ(this.value)" placeholder="${e(D.search)}"></div>
-       <div class="refbox"><span>${e(D.reference)}</span><code dir="ltr">${e(reference)}</code></div>
+       <div class="refbox"><span>${e(D.reference)}</span><code dir="ltr">${e(REPORT_META.reference)}</code></div>
      </aside>
+
      <article class="release-sheet">
        <header class="release-cover">
-         <div class="date-block"><div><div class="n">${date.day}</div><div class="m">${lang==="ar"?"سبتمبر":"EYLÜL"}</div><div class="y">${date.y}</div></div><div class="stamp">${e(D.record)}</div></div>
-         <div class="release-summary"><div class="eyebrow">APPROVED RELEASE · ${date.display}</div><h2>${e(D.releaseTitle)}</h2><p>${e(D.releaseText)}</p><div class="legend">${Object.entries(D.cats).filter(([k])=>counts[k]).map(([k,v])=>`<span>${e(v)} · ${counts[k]||0}</span>`).join("")}</div></div>
+         <div class="date-block"><div><div class="n">${date.d}</div><div class="m">${lang==="ar"?"سبتمبر":"EYLÜL"}</div><div class="y">${date.y}</div></div><div class="stamp">${e(D.record)} · ${rel.hours}h</div></div>
+         <div class="release-summary"><div class="eyebrow">RELEASE ${String(releaseIndex).padStart(2,"0")} · ${date.display}</div><h2>${e(D.releaseTitle)}</h2><p>${e(D.releaseText)}</p><div class="legend">${Object.entries(D.cats).filter(([k])=>counts[k]).map(([k,v])=>`<span>${e(v)} · ${counts[k]}</span>`).join("")}<span class="hours-chip"><i></i>${e(D.workHours)} · ${rel.hours} ${e(D.hoursUnit)}</span></div></div>
        </header>
        <div class="change-stream">${shown.map(o=>`<section class="change"><div class="change-no">${String(o.i+1).padStart(2,"0")}</div><div><div class="change-cat">${e(D.cats[o.x[0]])}</div><h3>${e(o.x[1])}</h3><ul>${o.x[2].map(b=>`<li>${e(b)}</li>`).join("")}</ul></div></section>`).join("")}</div>
      </article>
