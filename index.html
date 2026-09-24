@@ -40,7 +40,7 @@ button,input{font:inherit}
 .intro{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:18px;margin-bottom:18px;align-items:stretch}
 .intro-copy{background:linear-gradient(145deg,#fff 0%,#fbfaf7 100%);color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:20px 22px;position:relative;overflow:hidden;min-height:238px;box-shadow:0 10px 28px rgba(23,33,43,.045);display:flex;flex-direction:column;justify-content:space-between}
 .intro-copy:before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:linear-gradient(180deg,#c79a48,#b6463c)}
-.intro-copy:after{content:"23";position:absolute;right:18px;bottom:-26px;font-size:118px;line-height:1;font-weight:950;color:rgba(19,40,58,.032);letter-spacing:-.08em;pointer-events:none}
+.intro-copy:after{content:attr(data-day);position:absolute;right:18px;bottom:-26px;font-size:118px;line-height:1;font-weight:950;color:rgba(19,40,58,.032);letter-spacing:-.08em;pointer-events:none}
 .intro-topline{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:1}
 .kicker{font-size:8px;letter-spacing:.17em;color:#96723c;text-transform:uppercase;font-weight:900}
 .release-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid #ded7ca;background:#f6f2ea;border-radius:999px;padding:5px 8px;font-size:8px;font-weight:850;color:#43525b;white-space:nowrap}
@@ -62,7 +62,8 @@ button,input{font:inherit}
 .day{height:34px;border:1px solid #e5e0d7;border-radius:8px;background:#fbfaf7;display:grid;place-items:center;font-size:9px;color:#56616a;position:relative}
 .day.empty{border-color:transparent;background:transparent}
 .day.release{background:var(--red);color:white;border-color:var(--red);font-weight:900;cursor:pointer;box-shadow:0 8px 18px rgba(182,70,60,.22)}
-.day.release:after{content:"11";position:absolute;right:4px;top:3px;font-size:6px;color:#f7d8d4;background:rgba(255,255,255,.12);border-radius:999px;padding:1px 3px}
+.day.release:after{content:attr(data-count);position:absolute;right:4px;top:3px;font-size:6px;color:#f7d8d4;background:rgba(255,255,255,.12);border-radius:999px;padding:1px 3px}
+.day.release.selected{outline:3px solid rgba(19,40,58,.18);outline-offset:2px;box-shadow:0 8px 20px rgba(182,70,60,.28)}
 .month-note{display:flex;align-items:center;gap:7px;margin-top:9px;font-size:8px;color:var(--muted)}
 .month-note i{width:8px;height:8px;border-radius:50%;background:var(--red)}
 .release-layout{display:grid;grid-template-columns:340px minmax(0,1fr);gap:20px;align-items:start}
@@ -222,27 +223,84 @@ const DATA={
   }
 };
 const reference="EMRINA_Masar_Sales_Suite_ControlCenter_Permissions.html";
-let lang="tr",filter="all",q="";
+const RELEASES={
+  "2026-09-23":DATA,
+  "2026-09-24":{
+    tr:{...DATA.tr,
+      releaseTitle:"24 Eylül 2026 · Onaylı Sistem Güncellemeleri",
+      releaseText:"Bu kayıt, 24 Eylül 2026 tarihinde EMRINA Masar Makkah sistemi üzerinde tamamlanan ve onaylanan belge, rakam standardı ve elektronik imza geliştirmelerini içerir.",
+      cats:{...DATA.tr.cats,system:"Sistem Standardı"},
+      items:[
+        ["system","Sistem Genelinde İngilizce Rakam Standardı",[
+          "Sistem genelindeki tüm sayısal değerler 0–9 Latin/İngilizce rakamlarıyla standardize edildi.",
+          "Arayüz dili Arapça, Türkçe veya İngilizce olsa da tutarlar, yüzdeler, kat numaraları, tarih/saat gösterimleri ve diğer sayısal değerler İngilizce rakamlarla görüntülenir.",
+          "Kullanıcı tarafından Arapça veya Farsça rakamlarla girilen sayısal karakterler de otomatik olarak İngilizce rakamlara dönüştürülür."
+        ]],
+        ["contract","Sözleşme ve Rezervasyon Belgelerinde Varsayılan Türkçe",[
+          "Satış sözleşmesi veya rezervasyon sözleşmesi açıldığında belge, sistem arayüzünün aktif dilinden bağımsız olarak varsayılan biçimde Türkçe gösterilir.",
+          "Kullanıcı isterse belge dili seçiminden Arapça veya Arapça + Türkçe görünümüne geçebilir.",
+          "Belge önizlemesi ve yazdırma işlemi seçilen belge diline göre gerçekleştirilir."
+        ]],
+        ["contract","Elektronik İmza Sisteminin Geliştirilmesi",[
+          "Elektronik imza ekranına, imzayı ekranda çizmenin yanında mevcut imza görselini yükleme seçeneği eklendi.",
+          "İmza görseli PNG, JPG/JPEG veya WEBP biçimlerinde yüklenebilir ve dosya boyutu kontrol edilir.",
+          "Çizim modu fare, parmak ve elektronik kalem ile çalışır; iPad ve dokunmatik ekranlı bilgisayarlarda doğrudan ekrana imza atılabilir.",
+          "Sistem, çizilmiş veya yüklenmiş imzayı aynı sözleşme imza kaydına bağlar ve imzanın kaynağını denetim verisine kaydeder."
+        ]]
+      ]
+    },
+    ar:{...DATA.ar,
+      releaseTitle:"24 سبتمبر 2026 · تحديثات النظام المعتمدة",
+      releaseText:"يتضمن هذا السجل التحديثات التي تم تنفيذها واعتمادها بتاريخ 24 سبتمبر 2026 على نظام EMRINA لمشروع مسار مكة، والمتعلقة بتوحيد الأرقام، لغة العقود، وتطوير التوقيع الإلكتروني.",
+      cats:{...DATA.ar.cats,system:"معايير النظام"},
+      items:[
+        ["system","توحيد الأرقام الإنجليزية في كامل النظام",[
+          "تم توحيد جميع القيم الرقمية في النظام لتظهر باستخدام الأرقام الإنجليزية 0–9 فقط.",
+          "بغض النظر عن لغة واجهة النظام، تظهر المبالغ والنسب وأرقام الأدوار والتواريخ والأوقات وأي قيم رقمية أخرى بالأرقام الإنجليزية.",
+          "إذا قام المستخدم بإدخال أرقام عربية أو فارسية، يتم تحويلها تلقائيًا إلى أرقام إنجليزية داخل النظام."
+        ]],
+        ["contract","اعتماد اللغة التركية افتراضيًا للعقود واتفاقيات الحجز",[
+          "عند فتح عقد البيع أو اتفاقية الحجز، تظهر الوثيقة تلقائيًا باللغة التركية بغض النظر عن اللغة المستخدمة حاليًا في واجهة النظام.",
+          "يمكن للمستخدم تغيير لغة الوثيقة عند الحاجة إلى العربية أو إلى العرض الثنائي العربية + التركية.",
+          "تتم معاينة الوثيقة وطباعتها حسب اللغة التي يختارها المستخدم."
+        ]],
+        ["contract","تطوير نظام التوقيع الإلكتروني",[
+          "تمت إضافة خيار رفع صورة توقيع جاهزة إلى جانب خيار رسم التوقيع على الشاشة.",
+          "يمكن رفع صورة التوقيع بصيغ PNG أو JPG/JPEG أو WEBP مع التحقق من حجم الملف.",
+          "أصبح رسم التوقيع يدعم الماوس والإصبع والقلم الإلكتروني، بما يسمح بالتوقيع مباشرة على شاشة iPad أو أجهزة الكمبيوتر المزودة بشاشة لمس.",
+          "يتم ربط التوقيع المرسوم أو المرفوع بنفس سجل توقيع العقد، مع تسجيل مصدر التوقيع ضمن بيانات التدقيق."
+        ]]
+      ]
+    }
+  }
+};
+let lang="tr",filter="all",q="",selectedDate=Object.keys(RELEASES).sort().reverse()[0];
 function e(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
 function setLang(v){lang=v;document.documentElement.lang=v;document.documentElement.dir=v==="ar"?"rtl":"ltr";document.getElementById("trBtn").classList.toggle("active",v==="tr");document.getElementById("arBtn").classList.toggle("active",v==="ar");render()}
 function setFilter(v){filter=v;render()}
 function setQ(v){q=(v||"").trim().toLowerCase();render()}
+function setReleaseDate(v){if(!RELEASES[v])return;selectedDate=v;filter="all";q="";render()}
+function releaseDateParts(){let [y,m,d]=selectedDate.split('-');return{y,m,d,display:`${d}.${m}.${y}`,day:Number(d)}}
 function calendarHTML(D){
- const blanks=1; let cells="";
+ const blanks=1;let cells="";
  for(let i=0;i<blanks;i++)cells+=`<div class="day empty"></div>`;
- for(let d=1;d<=30;d++)cells+=`<div class="day ${d===23?"release":""}" ${d===23?'title="23"':''}>${d}</div>`;
+ for(let d=1;d<=30;d++){
+   let key=`2026-09-${String(d).padStart(2,'0')}`,rel=RELEASES[key],count=rel?rel[lang].items.length:0;
+   cells+=`<div class="day ${rel?'release':''} ${key===selectedDate?'selected':''}" ${rel?`data-count="${count}" onclick="setReleaseDate('${key}')" title="${key}"`:''}>${d}</div>`;
+ }
  return `<div class="weekdays">${D.week.map(x=>`<div>${e(x)}</div>`).join("")}</div><div class="calendar">${cells}</div>`
 }
 function render(){
- const D=DATA[lang], counts={};D.items.forEach(x=>counts[x[0]]=(counts[x[0]]||0)+1);
+ const D=RELEASES[selectedDate][lang],date=releaseDateParts(),counts={};D.items.forEach(x=>counts[x[0]]=(counts[x[0]]||0)+1);
  const shown=D.items.map((x,i)=>({x,i})).filter(o=>(filter==="all"||o.x[0]===filter)&&(!q||(o.x[1]+" "+o.x[2].join(" ")).toLowerCase().includes(q)));
- const cats=[["all",D.all],...Object.entries(D.cats)];
+ const cats=[["all",D.all],...Object.entries(D.cats).filter(([k])=>counts[k])];
+ const releaseIndex=Object.keys(RELEASES).sort().indexOf(selectedDate)+1;
  document.getElementById("root").innerHTML=`<main class="main ${lang==="ar"?"ar":""}">
    <section class="intro">
-     <div class="intro-copy">
-       <div class="intro-topline"><div class="kicker">EMRINA · MASAR MAKKAH · ${e(D.record)}</div><div class="release-badge">23.09.2026</div></div>
-       <div class="intro-main"><div class="intro-number">01</div><div><h1>${e(D.heroTitle)}</h1><p>${e(D.heroText)}</p></div></div>
-       <div class="hero-stats"><div class="hero-stat"><span>${e(D.updates)}</span><b>11</b></div><div class="hero-stat"><span>${e(D.areas)}</span><b>${Object.keys(counts).length}</b></div><div class="hero-stat"><span>${e(D.record)}</span><b>23.09.2026</b></div></div>
+     <div class="intro-copy" data-day="${date.d}">
+       <div class="intro-topline"><div class="kicker">EMRINA · MASAR MAKKAH · ${e(D.record)}</div><div class="release-badge">${date.display}</div></div>
+       <div class="intro-main"><div class="intro-number">${String(releaseIndex).padStart(2,'0')}</div><div><h1>${e(D.heroTitle)}</h1><p>${e(D.heroText)}</p></div></div>
+       <div class="hero-stats"><div class="hero-stat"><span>${e(D.updates)}</span><b>${D.items.length}</b></div><div class="hero-stat"><span>${e(D.areas)}</span><b>${Object.keys(counts).length}</b></div><div class="hero-stat"><span>${e(D.record)}</span><b>${date.display}</b></div></div>
      </div>
      <div class="month-panel">
        <div class="month-head"><div><span>RELEASE CALENDAR</span><b>${e(D.month)}</b></div><span>2026</span></div>
@@ -254,15 +312,15 @@ function render(){
      <aside class="release-index">
        <h3>${e(D.record)}</h3>
        <p>${e(D.releaseText)}</p>
-       <div class="index-meta"><div><span>${e(D.updates)}</span><b>11</b></div><div><span>${e(D.areas)}</span><b>${Object.keys(counts).length}</b></div></div>
-       <div class="filter-list">${cats.map(([k,v])=>`<button class="filter-btn ${filter===k?"active":""}" onclick="setFilter('${k}')"><span class="left"><i class="dot"></i>${e(v)}</span><small>${k==="all"?11:(counts[k]||0)}</small></button>`).join("")}</div>
+       <div class="index-meta"><div><span>${e(D.updates)}</span><b>${D.items.length}</b></div><div><span>${e(D.areas)}</span><b>${Object.keys(counts).length}</b></div></div>
+       <div class="filter-list">${cats.map(([k,v])=>`<button class="filter-btn ${filter===k?"active":""}" onclick="setFilter('${k}')"><span class="left"><i class="dot"></i>${e(v)}</span><small>${k==="all"?D.items.length:(counts[k]||0)}</small></button>`).join("")}</div>
        <div class="searchbox"><span>⌕</span><input value="${e(q)}" oninput="setQ(this.value)" placeholder="${e(D.search)}"></div>
        <div class="refbox"><span>${e(D.reference)}</span><code dir="ltr">${e(reference)}</code></div>
      </aside>
      <article class="release-sheet">
        <header class="release-cover">
-         <div class="date-block"><div><div class="n">23</div><div class="m">${lang==="ar"?"سبتمبر":"EYLÜL"}</div><div class="y">2026</div></div><div class="stamp">${e(D.record)}</div></div>
-         <div class="release-summary"><div class="eyebrow">APPROVED RELEASE · 23.09.2026</div><h2>${e(D.releaseTitle)}</h2><p>${e(D.releaseText)}</p><div class="legend">${Object.entries(D.cats).map(([k,v])=>`<span>${e(v)} · ${counts[k]||0}</span>`).join("")}</div></div>
+         <div class="date-block"><div><div class="n">${date.day}</div><div class="m">${lang==="ar"?"سبتمبر":"EYLÜL"}</div><div class="y">${date.y}</div></div><div class="stamp">${e(D.record)}</div></div>
+         <div class="release-summary"><div class="eyebrow">APPROVED RELEASE · ${date.display}</div><h2>${e(D.releaseTitle)}</h2><p>${e(D.releaseText)}</p><div class="legend">${Object.entries(D.cats).filter(([k])=>counts[k]).map(([k,v])=>`<span>${e(v)} · ${counts[k]||0}</span>`).join("")}</div></div>
        </header>
        <div class="change-stream">${shown.map(o=>`<section class="change"><div class="change-no">${String(o.i+1).padStart(2,"0")}</div><div><div class="change-cat">${e(D.cats[o.x[0]])}</div><h3>${e(o.x[1])}</h3><ul>${o.x[2].map(b=>`<li>${e(b)}</li>`).join("")}</ul></div></section>`).join("")}</div>
      </article>
